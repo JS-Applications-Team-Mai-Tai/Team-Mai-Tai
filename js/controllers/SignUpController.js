@@ -4,7 +4,6 @@ function signUp(usernameTextFieldId, passwordTextFieldId) {
 
     if (username.length < 3 || password.length < 6) {
         console.error('Username and password are invalid');
-        signUp(usernameTextFieldId, passwordTextFieldId);
     }
 
     var currentUser = Parse.User.current();
@@ -15,4 +14,8 @@ function signUp(usernameTextFieldId, passwordTextFieldId) {
     Parse.User.signUp(username, password, {
         imagesToGuess: []
     });
+
+    $('#log-in').hide();
+    $('#log-out').show();
+    $('#sign-up').hide();
 }

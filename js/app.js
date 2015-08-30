@@ -2,6 +2,14 @@ import $ from 'jquery';
 import Sammy from './lib/sammy.js';
 
 (function () {
+    System.import('./js/controllers/LogOutController.js').then(function () {
+        $('#log-out')
+            .on('click', function () {
+                logOut();
+            })
+            .hide();
+    });
+
     var app = Sammy("#main-content", function () {
         this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
@@ -11,7 +19,9 @@ import Sammy from './lib/sammy.js';
 
         this.get("#/log-in", function (context) {
             this.load('./templates/log-in.html', function (data) {
-                context.$element().html(data);
+                System.import('./js/controllers/LogInController.js').then(function () {
+                    context.$element().html(data);
+                });
             });
         });
 
