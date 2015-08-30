@@ -1,30 +1,31 @@
-import $ from './lib/jquery.js';
-import sammy from './lib/sammy.js';
+import $ from 'jquery';
+import Sammy from './lib/sammy.js';
 
 (function () {
-    var wrapper = $('#main-content');
-    var app = sammy("#main-content", function () {
-        this.get('#/home', function () {
+    var app = Sammy("#main-content", function () {
+        this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
-                wrapper.html(data);
+                context.$element().html(data);
             });
         });
 
-        this.get("#/log-in", function () {
+        this.get("#/log-in", function (context) {
             this.load('./templates/log-in.html', function (data) {
-                wrapper.html(data);
+                context.$element().html(data);
             });
         });
 
-        this.get("#/sign-up", function () {
+        this.get("#/sign-up", function (context) {
             this.load('./templates/sign-up.html', function (data) {
-                wrapper.html(data);
+                System.import('./js/controllers/SignUpController.js').then(function () {
+                    context.$element().html(data);
+                });
             });
         });
 
-        this.get("#/about", function () {
+        this.get("#/about", function (context) {
             this.load('./templates/about.html', function (data) {
-                wrapper.html(data);
+                context.$element().html(data);
             });
         });
     });

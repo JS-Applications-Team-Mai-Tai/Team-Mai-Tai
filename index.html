@@ -20,11 +20,16 @@
 <script>
     Parse.initialize("z5SoIhiLh9xHzInujwO7Kea9bynlOZjWAFitTrX4", "VqxtO19Nf4y9ba2vv5cVlB4BOivwraZcNWVo7zL0");
     System.config({
-        transpiler: 'js/lib/browser.js',
+        transpiler: "babel",
         babelOptions: {
             optional: [
-                'runtime'
+                "runtime"
             ]
+        },
+
+        map: {
+            babel: 'js/lib/browser.js',
+            jquery: 'js/lib/jquery.js'
         }
     });
 
