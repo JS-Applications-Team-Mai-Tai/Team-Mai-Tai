@@ -38,6 +38,14 @@ import Sammy from './lib/sammy.js';
                 context.$element().html(data);
             });
         });
+
+        this.get("#/mygames", function (context) {
+            this.load('./templates/userGames.html', function (data) {
+                context.$element().html(data);
+            });
+        });
+
+
     });
 
     app.run("#/home");
