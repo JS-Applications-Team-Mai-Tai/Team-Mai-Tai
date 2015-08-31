@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import Sammy from './lib/sammy.js';
 
 (function () {
@@ -9,6 +8,8 @@ import Sammy from './lib/sammy.js';
             })
             .hide();
     });
+
+    $('#user-options').hide();
 
     var app = Sammy("#main-content", function () {
 
@@ -41,14 +42,18 @@ import Sammy from './lib/sammy.js';
             });
         });
 
-        this.get("#/mygames", function (context) {
+        this.get("#/my-games", function (context) {
             this.load('./templates/userGames.html', function (data) {
                 context.$element().html(data);
+
+                System.import('./js/controllers/GamesController.js');
             });
         });
 
 
     });
 
-    app.run("#/home");
+    $(function () {
+        app.run("#/home");
+    });
 }());

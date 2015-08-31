@@ -23,7 +23,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+                <li id="user-options" class="dropdown">
 
                     <a id="userName" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <span class="caret"></span></a>
 
@@ -47,7 +47,7 @@
 <ul>
     <li id="sign-up"><a href="#/sign-up">Sign up</a></li>
     <li><a href="#/about">About</a></li>
-    <li><a href="#/mygames">Games</a></li>
+    <li><a href="#/my-games">Games</a></li>
 </ul>
 
 <div id="main-content">
@@ -57,7 +57,7 @@
 <script src="css/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 <script src="js/lib/system.js"></script>
 <script src="js/lib/parse.js"></script>
-<script src="js/lib/knockout-3.3.0.js"></script>
+<script src="js/lib/handlebars.js"></script>
 <script>
     Parse.initialize("XyNdXQeBrdwFfoy1BXvnxf5sSBfd2QdpXJUtbSh9", "lVXyZDKnKUyLfcYxW3cQghtg6dJB5Hz9Pymf00XG");
     System.config({
@@ -75,6 +75,19 @@
     });
 
     System.import('js/app.js');
+</script>
+
+<script id="my-images-template" type="text/x-handlebars-template">
+    <ul>
+        {{#each imagesToGuess}}
+        <li>
+            <img width="350px" height="350px" src="{{base64String}}">
+            <label for="guess">Your guess of this drawing:</label>
+            <input id="guess" type="text"/>
+            <a href="#/my-games">Make a guess</a>
+        </li>
+        {{/each}}
+    </ul>
 </script>
 </body>
 </html>
