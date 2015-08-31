@@ -14,6 +14,7 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
                 $('#log-out').show();
                 $('#sign-up').hide();
                 $('#name').show();
+                $('#userName').html(username);
                 alert('Logged in!');
             },
 

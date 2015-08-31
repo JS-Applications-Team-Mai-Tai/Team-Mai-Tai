@@ -13,8 +13,9 @@ function signUp(usernameTextFieldId, passwordTextFieldId) {
 
     Parse.User.signUp(username, password, {
         imagesToGuess: []
-    });
 
+    });
+    $('#userName').html(username);
     $('#log-in').hide();
     $('#log-out').show();
     $('#sign-up').hide();

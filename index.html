@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <title>Mai-Tai</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5-dist/JornalTheme/bootstrap.css"/>
-    <script src="js/lib/jquery.js"></script>
-    <script src="css/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
-    <script src="js/lib/system.js"></script>
-    <script src="js/lib/parse.js"></script>
+
 </head>
 
 <body>
@@ -23,12 +20,12 @@
             </button>
             <a class="navbar-brand" href="#/home">HOME</a>
         </div>
-        
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
 
-                    <a href="#/name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><%= username %> <span class="caret"></span></a>
+                    <a id="userName" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <span class="caret"></span></a>
 
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Action</a></li>
@@ -40,7 +37,7 @@
                     </ul>
                 </li>
                 <li id="log-in"><a href="#/log-in">Log in</a></li>
-                
+
             </ul>
         </div>
     </div>
@@ -48,8 +45,6 @@
 
 
 <ul>
-
-
     <li id="sign-up"><a href="#/sign-up">Sign up</a></li>
     <li><a href="#/about">About</a></li>
     <li><a href="#/mygames">Games</a></li>
@@ -58,6 +53,11 @@
 <div id="main-content">
 
 </div>
+<script src="js/lib/jquery.js"></script>
+<script src="css/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="js/lib/system.js"></script>
+<script src="js/lib/parse.js"></script>
+<script src="js/lib/knockout-3.3.0.js"></script>
 <script>
     Parse.initialize("z5SoIhiLh9xHzInujwO7Kea9bynlOZjWAFitTrX4", "VqxtO19Nf4y9ba2vv5cVlB4BOivwraZcNWVo7zL0");
     System.config({

@@ -11,6 +11,8 @@ import Sammy from './lib/sammy.js';
     });
 
     var app = Sammy("#main-content", function () {
+
+
         this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
                 context.$element().html(data);
