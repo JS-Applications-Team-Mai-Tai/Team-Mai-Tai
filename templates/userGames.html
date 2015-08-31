@@ -7,3 +7,18 @@
         <h2>Their Turn</h2>
     </div>
 </div>
+
+<script type="text/x-handlebars-template">
+    {{#myTurnItems}}
+   <div class="list-group-item">
+       <a href="#">
+           <h4>{{name}}</h4>
+           <span class="level">{{level}}</span>
+           <span class="timeago">{{time}} ago</span>
+       </a>
+
+   </div>
+    {{/myTurnItems}}
+
+
+</script>
