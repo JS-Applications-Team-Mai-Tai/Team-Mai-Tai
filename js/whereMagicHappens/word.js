@@ -45,9 +45,5 @@ var Word = (function(){
         }
     });
 
-
-
-
     return Word;
 }());
-return Word;

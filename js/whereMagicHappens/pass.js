@@ -8,12 +8,15 @@ var pass = (function(parent){
         this.type = 'pass';
         return this;
     }
+
     pass.prompt = function(){
         //pass is the most expensive and gives you the whole word/turn
     }
+
     pass.toString = function(){
         var base = parent.toString().call(this);
         return base;
     }
+    
     return pass;
 }(joker));
