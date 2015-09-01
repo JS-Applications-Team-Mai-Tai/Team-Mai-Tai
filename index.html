@@ -80,18 +80,5 @@
 
     System.import('js/app.js');
 </script>
-
-<script id="my-images-template" type="text/x-handlebars-template">
-    <ul>
-        {{#each imagesToGuess}}
-        <li>
-            <img width="350px" height="350px" src="{{base64String}}">
-            <label for="guess">Your guess of this drawing:</label>
-            <input id="guess" type="text"/>
-            <a href="#/my-games">Make a guess</a>
-        </li>
-        {{/each}}
-    </ul>
-</script>
 </body>
 </html>
