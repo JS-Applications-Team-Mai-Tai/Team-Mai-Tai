@@ -66,6 +66,6 @@ import Sammy from './lib/sammy.js';
     });
 
     $(function () {
-        app.run("#/home");
+        app.run("#/art-space");
     });
 }());
