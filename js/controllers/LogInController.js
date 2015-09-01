@@ -20,7 +20,6 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
             $('#name').show();
             $('#userName').html(username);
             $('#user-options').show();
-            alert('Logged in!');
         },
 
         error: function () {
