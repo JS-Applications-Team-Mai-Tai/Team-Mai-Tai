@@ -4,7 +4,7 @@ function showGames() {
     $('newGame-btn').on('click', function(){
         //TODO: I don't know what to do
     });
-    if (currentUserImagesToGuess.length === 0) {
+    if (currentUserImagesToGuess.length === constants.initialStateOfGuess.initial) {
         var noFriends = 'You have no games. Start new game!'; ///???
         $('#myGamesWrapper').html(noFriends);
         $('#my-turn').hide();
