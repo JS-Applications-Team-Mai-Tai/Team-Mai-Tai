@@ -6,7 +6,6 @@ import Sammy from './lib/sammy.js';
             .on('click', function () {
                 logOut();
             })
-            .hide();
     });
 
     // check if there is a logged user
