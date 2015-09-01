@@ -1,4 +1,7 @@
 function showGames() {
+    if(!Parse.User.current()) {
+        $('div .myGamesWrapper').html('You must be logged in to see this page');
+    }
 
     var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
     $('#newGame-btn').on('click', function(){
