@@ -1,10 +1,11 @@
 (function(){
-    var game = (function() {
+    var game = (function(user, enemy) {
         //private shit
-        var user = Parse.User.current(); // or Parse.User(); ?
+        this.coins = 0;
 
         return {
             //public shit
+
 
         };
 
