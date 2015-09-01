@@ -60,7 +60,7 @@ import Sammy from './lib/sammy.js';
 
                 $('#newGame-btn').on('click', function(){
                     System.import('./js/controllers/NewGameController.js').then(function () {
-                        createNewGame(); //doesn't import/or load the file
+                        createNewGame();
                     });
                 });
             });

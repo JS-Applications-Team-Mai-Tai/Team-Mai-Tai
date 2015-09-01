@@ -63,7 +63,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	// expose the whereMagicHappens object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
 
 /******/ 	// expose the module cache
