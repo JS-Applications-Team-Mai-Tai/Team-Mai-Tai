@@ -9,11 +9,20 @@ import Sammy from './lib/sammy.js';
             .hide();
     });
 
-    $('#user-options').hide();
+    // check if there is a logged user
+    (function () {
+        if (Parse.User.current()) {
+            $('#userName').html(Parse.User.current().get('username'));
+            $('#log-in').hide();
+            $('#log-out').show();
+            $('#sign-up').hide();
+            $('#user-options').show();
+        } else {
+            $('#user-options').hide();
+        }
+    }());
 
     var app = Sammy("#main-content", function () {
-
-
         this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
                 context.$element().html(data);
@@ -46,7 +55,7 @@ import Sammy from './lib/sammy.js';
             this.load('./templates/userGames.html', function (data) {
                 context.$element().html(data);
 
-                System.import('./js/controllers/Games.js').then(function() {
+                System.import('./js/controllers/Games.js').then(function () {
                     showGames();
                 });
             });
@@ -54,7 +63,7 @@ import Sammy from './lib/sammy.js';
 
         this.get('#/art-space', function (context) {
             this.load('./templates/draw.html', function (data) {
-                System.import('./js/controllers/DrawingController.js').then(function() {
+                System.import('./js/controllers/DrawingController.js').then(function () {
                     context.$element().html(data);
                     createArtSpace();
                 });
