@@ -1,24 +1,31 @@
-<div class="wrapper">
+<div class="myGamesWrapper">
+    <button class="btn btn-success">New Game</button>
+
     <div class="jumbotron" id="my-turn">
         <h2>My Turn</h2>
+        <script id="myGamesTemplate" type="text/x-handlebars-template">
+            <ul>
+                {{#each imagesToGuess}}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{this.user}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <span>{{points}} points or level ot smth</span>
+                        <a href="#" class="btn btn-primary btn-xs">--></a>
+                    </div>
+
+
+                </div>
+                {{/each}}
+            </ul>
+        </script>
     </div>
 
     <div class="jumbotron" id="their-turn">
         <h2>Their Turn</h2>
+
     </div>
+
 </div>
 
-<script type="text/x-handlebars-template">
-    {{#myTurnItems}}
-   <div class="list-group-item">
-       <a href="#">
-           <h4>{{name}}</h4>
-           <span class="level">{{level}}</span>
-           <span class="timeago">{{time}} ago</span>
-       </a>
-
-   </div>
-    {{/myTurnItems}}
-
-
-</script>

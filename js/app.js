@@ -46,7 +46,7 @@ import Sammy from './lib/sammy.js';
             this.load('./templates/userGames.html', function (data) {
                 context.$element().html(data);
 
-                System.import('./js/controllers/GamesController.js').then(function() {
+                System.import('./js/controllers/Games.js').then(function() {
                     showGames();
                 });
             });
