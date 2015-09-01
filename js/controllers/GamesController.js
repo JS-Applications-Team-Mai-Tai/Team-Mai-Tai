@@ -1,5 +1,6 @@
 function showGames() {
     var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
+    console.log(currentUserImagesToGuess);
     if (currentUserImagesToGuess.length === constants.initialStateOfGuess.initial) {
         $('#my-turn').append('You have no images to guess. Send one to a friend!');
     } else {
