@@ -1,6 +1,9 @@
 function showGames() {
 
     var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
+    $('newGame-btn').on('click', function(){
+        //TODO: I don't know what to do
+    });
     if (currentUserImagesToGuess.length === 0) {
         var noFriends = 'You have no games. Start new game!'; ///???
         $('#myGamesWrapper').html(noFriends);
