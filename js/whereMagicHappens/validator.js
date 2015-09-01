@@ -14,7 +14,8 @@ var validator = (function(){
         if (currentUser) {
             Parse.User.logOut();
         }
-    }
+    };
+
 
     return {
         validateUserNameAndPassword : validateUserNameAndPassword,

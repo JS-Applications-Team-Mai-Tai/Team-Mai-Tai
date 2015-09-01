@@ -1,6 +1,6 @@
 function createArtSpace() {
     $('#simple_sketch').sketch({
-        defaultColor: "#000"
+        defaultColor: constants.colors.initial
     });
 
     //return this;

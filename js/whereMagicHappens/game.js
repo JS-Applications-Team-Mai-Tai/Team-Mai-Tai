@@ -1,7 +1,7 @@
 (function(){
     var game = (function(user, enemy) {
         //private shit
-        this.coins = 0;
+        this.coins = constants.gameValues.initialCoins;
 
         return {
             //public shit
@@ -14,11 +14,11 @@
     var x= {};
     Object.defineProperties(x, {
         a: {
-            value: 5
+            value: constants.xValues.a
         },
 
         b: {
-            value: 8
+            value: constants.xValues.b
         }
     });
 

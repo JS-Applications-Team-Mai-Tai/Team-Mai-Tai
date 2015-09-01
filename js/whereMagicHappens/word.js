@@ -11,7 +11,7 @@ var Word = (function(){
         this.category = _category;
     }
 
-    Word.Prototype.goGetGuessed() = function(){
+    Word.Prototype.goGetGuessed = function(){
       //send the word to the game stage to be drawn&guessed?
     };
 
