@@ -6,10 +6,11 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
     var username = $(usernameTextFieldId).val(),
         password = $(passwordTextFieldId).val();
 
+    validator.validateUserNameAndPassword(username,password);
+
     var currentUser = Parse.User.current();
-    if (currentUser) {
-        Parse.User.logOut();
-    }
+
+    validator.validateIfUserExistsToLogOut(currentUser);
 
     Parse.User.logIn(username, password, {
         success: function () {
