@@ -1,8 +1,8 @@
 function CreateNewGame(){
     var user = Parse.User.current();
     var currentUserGames = Parse.User.current().get('imagesToGuess');
-    var allUsers = new Parse.Query(Parse.User);
-    var usersLength = allUsers.length;
+    var allUsersQuery = new Parse.Query(Parse.User);
+    var usersLength = allUsersQuery.length;
 
     // get random index and while the corresponding user matches the current user, get a new random index
     var randomIndex = Math.floor(Math.random() * (usersLength + 1));

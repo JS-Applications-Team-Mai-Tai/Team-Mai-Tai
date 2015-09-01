@@ -54,10 +54,9 @@ import Sammy from './lib/sammy.js';
 
         this.get('#/art-space', function (context) {
             this.load('./templates/draw.html', function (data) {
-                context.$element().html(data);
-
                 System.import('./js/controllers/DrawingController.js').then(function() {
-                    createArtspace();
+                    context.$element().html(data);
+                    createArtSpace();
                 });
             });
         });
