@@ -4,11 +4,7 @@ function showGames() {
     }
 
     var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
-    $('#newGame-btn').on('click', function(){
-        System.import('NewGameController.js').then(function () {
-            createNewGame(); //doesn't import/or load the file
-        });
-    });
+
     if (currentUserImagesToGuess.length === constants.initialStateOfGuess.initial) {
         var noFriends = 'You have no games. Start new game!'; ///???
         $('#myGamesWrapper').html(noFriends);
