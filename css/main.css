@@ -122,3 +122,30 @@ body {
     font-size: 60px;
     font-family: 'Shadows Into Light', cursive;
 }
+
+#newGame-btn {
+    color: #173e43;
+    background-color: #3fb0ac;
+    font-size: 25px;
+    display: block;
+    margin: 0 auto;
+    width: 135px;
+    padding: 6px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #3fb0ac;
+    border-radius: 5px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+#newGame-btn>a {
+    color: #173e43;
+    text-decoration: none;
+}
+
+#newGame-btn > a:hover {
+    text-decoration: none;
+    color: #fae596;
+}
