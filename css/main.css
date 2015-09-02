@@ -149,3 +149,7 @@ body {
     text-decoration: none;
     color: #fae596;
 }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: initial;
+}
