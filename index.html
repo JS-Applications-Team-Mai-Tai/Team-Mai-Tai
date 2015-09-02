@@ -98,18 +98,42 @@
 </script>
 
 <script id="my-games-template" type="text/x-handlebars-template">
-    {{#each games}}
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
+    <div>
+        <button class="btn btn-success" id="newGame-btn"><a href="#/new-game">New Game</a></button>
+
+        <div class="jumbotron" id="my-turn">
+            <h2>My Turn</h2>
+            {{#each myTurnGames}}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
+                </div>
+                <div class="panel-body">
+                    <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
+                    <button><a href="#/my-games/{{player}}/vs/{{enemy}}">Go to details --></a></button>
+                </div>
+            </div>
+            {{/each}}
         </div>
-        <div class="panel-body">
-            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
-            <button><a href="#/my-games/{{player}}/vs/{{enemy}}">Go to details --></a></button>
+
+        <div class="jumbotron" id="their-turn">
+            <h2>Their Turn</h2>
+            {{#each theirTurnGames}}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
+                </div>
+                <div class="panel-body">
+                    <span>You have {{#if points}}{{points}}{{else}}0{{/if}}<i class="icomoon icon-coin"></i> points for this game</span>
+                </div>
+            </div>
+            {{/each}}
         </div>
+
     </div>
-    {{/each}}
 </script>
+
+
 
 <script id="art-space-template" type="text/x-handlebars">
     <div class="popover-content">
@@ -125,9 +149,9 @@
         </div>
     </div>
 
-
     <canvas id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
     <div onclick="download()"><button>Print png base64 to console</button></div>
 </script>
+
 </body>
 </html>
