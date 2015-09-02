@@ -58,6 +58,22 @@ body {
     border-radius: 5px;
 }
 
+#log-me-in {
+    color: #173e43;
+    background-color: #3fb0ac;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    width: 115px;
+    padding: 10px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #3fb0ac;
+    border-radius: 5px;
+}
+
 #sign-me-up:hover {
     color: #fae596;
 }
