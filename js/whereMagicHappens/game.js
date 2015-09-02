@@ -25,10 +25,16 @@ var Game = (function() {
 
         var template = $('#art-space-template').html();
         var compiledTemplate = Handlebars.compile(template);
-        var gameStage = compiledTemplate;
+        var gameStage = compiledTemplate({
+            wordToDraw: wordToDraw,
+            user: this.enemy // ot this._emnemy
+        });
         var page = $('#main-content');
+
         page.html('');
         page.append(gameStage);
+
+
     };
 
     Object.defineProperty(Game.prototype, 'mode', {
