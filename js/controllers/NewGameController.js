@@ -31,7 +31,6 @@ function createNewGame() {
 
         var newGame = new Game('classic', possibleEnemy);
         newGame.start();
-        alert(JSON.stringify(newGame));
         // Add game to player
         // Add game to enemy
         // Update games at database

@@ -1,4 +1,4 @@
-var Game = (function(mode, enemy, wordToDraw) {
+var Game = (function(mode, enemy) {
     function Game(mode, enemy){
         var _mode,
             _enemy,
@@ -13,8 +13,6 @@ var Game = (function(mode, enemy, wordToDraw) {
         //random word to come here
         return _wordToDraw;
 
-<<<<<<< Updated upstream
-=======
     }
 
     Game.prototype.start = function(){
@@ -33,7 +31,6 @@ var Game = (function(mode, enemy, wordToDraw) {
         page.append(gameStage);
     };
 
->>>>>>> Stashed changes
     Object.defineProperty(Game.prototype, 'mode', {
         get : function(){
             return this._mode;
