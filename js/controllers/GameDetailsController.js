@@ -15,8 +15,6 @@ function showGameDetails(user) {
         mainContent.append($('<div/>').html('An error occurred while fetching your game with this player'));
     }
 
-    debugger;
-
     var gameDetails = compiledTemplate(currentUserGames);
 
     mainContent.append($('<div/>').html(gameDetails));

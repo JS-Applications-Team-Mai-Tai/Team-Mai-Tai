@@ -1,4 +1,5 @@
 function showGames() {
+
     var currentUser = Parse.User.current();
     if (!currentUser) {
         $('div .myGamesWrapper').html('You must be logged in to see this page');
