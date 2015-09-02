@@ -1,9 +1,11 @@
 body {
     background-color: #e8edf3;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 #signup-username, #signup-password {
     display: block;
+    font-family: 'Shadows Into Light', cursive;
     margin: 0 auto;
     width: 310px;
     height: 40px;
@@ -13,6 +15,7 @@ body {
 
 #login-username, #login-password {
     display: block;
+    font-family: 'Shadows Into Light', cursive;
     margin: 0 auto;
     width: 310px;
     height: 40px;
@@ -33,19 +36,21 @@ body {
 .signup-form > h2 {
     color: #173e43;
     text-align: center;
+    font-family: 'Shadows Into Light', cursive;
     margin-bottom: 30px;
 }
 
 .login-form > h2 {
     color: #173e43;
     text-align: center;
+    font-family: 'Shadows Into Light', cursive;
     margin-bottom: 30px;
 }
 
 #sign-me-up {
     color: #173e43;
     background-color: #3fb0ac;
-    font-size: 18px;
+    font-size: 25px;
     display: block;
     margin: 0 auto;
     width: 115px;
@@ -56,12 +61,13 @@ body {
     text-decoration: none;
     border: 1px solid #3fb0ac;
     border-radius: 5px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 #log-me-in {
     color: #173e43;
     background-color: #3fb0ac;
-    font-size: 18px;
+    font-size: 25px;
     display: block;
     margin: 0 auto;
     width: 115px;
@@ -72,6 +78,7 @@ body {
     text-decoration: none;
     border: 1px solid #3fb0ac;
     border-radius: 5px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 #sign-me-up:hover {
@@ -86,10 +93,13 @@ body {
     background-color: #9fa8a3;
     border: 1px solid #9fa8a3;
     margin-right: 10px;
+    font-size: 25px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .navbar-inverse .navbar-brand {
     color: #173e43;
+    font-size: 25px;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -104,4 +114,11 @@ body {
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     color: #fae596;
     background-color: initial;
+}
+
+#main-content h3 {
+    color: #173e43;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Shadows Into Light', cursive;
 }
