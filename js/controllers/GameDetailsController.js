@@ -8,7 +8,7 @@ function showGameDetails(user) {
 
     var template = $('#game-details-template').html();
     var compiledTemplate = Handlebars.compile(template);
-    var currentUserGames = JSON.parse(localStorage.getItem(currentUser.get('username')));
+    var currentUserGames = JSON.parse(localStorage.getItem(currentUser.get('username')))[user];
     console.log(currentUserGames);
 
     if(!currentUserGames) {
@@ -17,9 +17,7 @@ function showGameDetails(user) {
 
     debugger;
 
-    var gameDetails = compiledTemplate({
-        imagesToGuess: currentUserGames
-    });
-    
+    var gameDetails = compiledTemplate(currentUserGames);
+
     mainContent.append($('<div/>').html(gameDetails));
 }
