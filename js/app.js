@@ -76,6 +76,12 @@ import Sammy from './lib/sammy.js';
             })
         });
 
+        this.get('#/new-game', function(context){
+            this.load('./templates/new-game.html', function(data){
+                context.$element().html(data);
+            });
+        });
+
         this.get('#/art-space', function (context) {
             this.load('./templates/draw.html', function (data) {
                 System.import('./js/controllers/DrawingController.js').then(function () {

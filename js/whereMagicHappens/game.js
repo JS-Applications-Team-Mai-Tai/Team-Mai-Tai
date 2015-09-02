@@ -1,26 +1,47 @@
-(function(){
-    var game = (function(user, enemy) {
-        //private shit
-        this.coins = constants.gameValues.initialCoins;
+var Game = (function(mode, enemy) {
+    function Game(mode, enemy){
+        var _mode,
+            _enemy,
+            _myturn;
+        this._mode = mode;
+        this._enemy = enemy;
+        this._myturn = true;
+    }
 
-        return {
-            //public shit
+    //Game.Prototype.start = function(){};
 
-
-        };
-
-    }());
-
-    var x= {};
-    Object.defineProperties(x, {
-        a: {
-            value: constants.xValues.a
+    Object.defineProperty(Game.Prototype, 'mode', {
+        get : function(){
+            return this._mode;
         },
-
-        b: {
-            value: constants.xValues.b
+        set : function(value){
+            //validate - modes are 'Classic' & 'Challange'(not neccessary will be implemented)
+            this._mode = value;
         }
     });
 
-    return game;
+    Object.defineProperty(Game.Prototype, 'enemy', {
+        get : function(){
+            return this._enemy;
+        },
+        set : function(value){
+            //validate - it will be validated before that so I'm not sure
+            this._enemy = value;
+        }
+    });
+
+    Object.defineProperty(Game.Protoype, 'myturn',{
+        get : function(){
+            return this._myturn;
+        },
+        set : function(value){
+            //validate
+            this._myturn = value;
+        }
+    });
+
+    return Game;
+
 }());
+
+System.exports = Game;
