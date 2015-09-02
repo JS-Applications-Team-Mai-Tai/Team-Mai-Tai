@@ -11,51 +11,30 @@ function createNewGame() {
     var allUsersQuery = new Parse.Query(Parse.User);
     var usersLength = 0;
 
-    var promise = new Promise(function (resolve, reject) {
-        allUsersQuery.each(function (user) {
-            usersLength += 1;
-        })
-            .then(function () {
-                var isSameUser = true;
-                var hasGameWithSelectedUser = true;
+    var allUsers = [];
 
-                for (var i = 0; i < usersLength; i += 1) {
-                    var promise = new Promise(function (resolve) {
-                        var randomIndex = Math.floor(Math.random() * (usersLength + 1));
-                        var counter = 0;
-                        allUsersQuery.each(function (user) {
-                            if (counter === randomIndex) {
-                                resolve(user.get('username'));
-                            }
+    allUsersQuery.each(function (user) {
+        allUsers.push(user);
+    }).then(function () {
+        while (true) {
+            var randomIndex = Math.floor(Math.random() * (usersLength + 1));
+            var possibleEnemy = allUsers[randomIndex];
+            var isSameUser = possibleEnemy.get('username') === currentUser.get('username'),
+                hasGameWithUser = currentEnemies.some(function (enemy) {
+                    return enemy === possibleEnemy.get('username');
+                });
 
-                            counter += 1;
-                        });
-                    });
+            if (!(hasGameWithUser || isSameUser)) {
+                break;
+            }
+        }
 
-                    promise.then(function (username) {
-                        isSameUser = username === currentUser.get('username');
-                        hasGameWithSelectedUser = currentEnemies.some(function (enemy) {
-                            return username === enemy;
-                        });
-
-
-                        if (!(isSameUser || hasGameWithSelectedUser)) {
-                            resolve(username);
-                        }
-                    });
-
-                    if (!(isSameUser || hasGameWithSelectedUser)) {
-                        break;
-                    }
-                }
-            });
+        // Create new game
+        // Add game to player
+        // Add game to enemy
+        // Update games at database
+        console.log(possibleEnemy);
     });
-
-    promise.then(function (username) {
-        // make new game with this enemy
-        console.log(username);
-    });
-
 
     var mode = 'classic'; //we should get the value from the button
 
