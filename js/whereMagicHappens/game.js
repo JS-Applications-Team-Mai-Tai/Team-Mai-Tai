@@ -7,7 +7,28 @@ var Game = (function() {
         this._myturn = true;
     }
 
-    //Game.Prototype.start = function(){};
+    Game.prototype.getWord = function(){
+        var _wordToDraw;
+        //random word to come here
+        return _wordToDraw;
+
+    }
+
+    Game.prototype.start = function(){
+        var wordToDraw = this.getWord();
+        //wordToDraw.shuffle();
+        wordToDraw = 'jobs'; //TODO
+
+        System.import('./js/controllers/DrawingController.js').then(function(){
+           createArtSpace();
+        });
+        var template = $('#art-space-template').html();
+        var compiledTemplate = Handlebars.compile(template);
+        var gameStage = compiledTemplate;
+        var page = $('#main-content');
+        page.html('');
+        page.append(gameStage);
+    };
 
     Object.defineProperty(Game.prototype, 'mode', {
         get : function(){
@@ -52,5 +73,8 @@ var Game = (function() {
     return Game;
 
 }());
+
+var testGame = new Game('classic', 'vankata');
+testGame.start();
 
 System.exports = Game;
