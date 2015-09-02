@@ -59,8 +59,8 @@ import Sammy from './lib/sammy.js';
                 });
 
                 $('#newGame-btn').on('click', function () {
-                    System.import('./js/controllers/NewGameController.js').then(function () {
-                        createNewGame();
+                    System.import('./js/controllers/NewGameController.js').then(function (obj) {
+                        console.log(obj);
                     });
                 });
             });

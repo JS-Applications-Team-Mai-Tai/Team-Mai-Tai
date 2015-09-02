@@ -1,10 +1,9 @@
-var Game = (function(mode, enemy) {
-    function Game(mode, enemy){
-        var _mode,
-            _enemy,
-            _myturn;
-        this._mode = mode;
+var Game = (function() {
+    function Game(player, enemy, mode){
+        this._mode = mode || 'classic';
+        this._player = player;
         this._enemy = enemy;
+        this.images = [];
         this._myturn = true;
     }
 
@@ -15,7 +14,7 @@ var Game = (function(mode, enemy) {
             return this._mode;
         },
         set : function(value){
-            //validate - modes are 'Classic' & 'Challange'(not neccessary will be implemented)
+            //validate - modes are 'Classic' & 'Challenge'(not necessary will be implemented)
             this._mode = value;
         }
     });
@@ -27,6 +26,16 @@ var Game = (function(mode, enemy) {
         set : function(value){
             //validate - it will be validated before that so I'm not sure
             this._enemy = value;
+        }
+    });
+
+    Object.defineProperty(Game.prototype, 'player', {
+        get : function(){
+            return this._player;
+        },
+        set : function(value){
+            //validate - it will be validated before that so I'm not sure
+            this._player = value;
         }
     });
 

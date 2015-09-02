@@ -1,11 +1,10 @@
 function showGames() {
-
     var currentUser = Parse.User.current();
     if (!currentUser) {
         $('div .myGamesWrapper').html('You must be logged in to see this page');
     }
 
-    var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
+    var currentUserImagesToGuess = Parse.User.current().get('games');
     var games = {};
     currentUserImagesToGuess.forEach(function (game) {
         games[game.user] = game.images;
@@ -20,10 +19,10 @@ function showGames() {
         $('#their-turn').hide();
     } else {
         //TODO: eventually boolean to check turns & split to my turn & their turn
-        var template = $('#myGamesTemplate').html();
+        var template = $('#my-games-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var html = compiledTemplate({
-            imagesToGuess: currentUserImagesToGuess
+            games: currentUserImagesToGuess
         });
 
         $('#my-turn').append(html);

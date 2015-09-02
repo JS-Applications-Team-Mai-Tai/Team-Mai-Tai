@@ -1,4 +1,4 @@
-//import Game from '.whereMagicHappens/game.js';
+import Game from 'js/whereMagicHappens/game.js';
 
 function createNewGame() {
     var currentUser = Parse.User.current();
@@ -29,15 +29,20 @@ function createNewGame() {
             }
         }
 
-        // Create new game
+        // Create a new game
+        var game = new Game(currentUser, possibleEnemy);
+
         // Add game to player
+        currentUserGames.push(game);
+
         // Add game to enemy
+        var enemyGames = possibleEnemy.get('games');
+        enemyGames.push(game);
+
         // Update games at database
-        console.log(possibleEnemy);
+        currentUser.save('games', currentUserGames);
+        possibleEnemy.save('games', enemyGames);
     });
-
-    var mode = 'classic'; //we should get the value from the button
-
-    //var newGame = new Game(mode, enemy);
-
 }
+
+System.exports = {createNewGame};
