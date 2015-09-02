@@ -153,3 +153,57 @@ body {
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
     background-color: initial;
 }
+
+.form-horizontal {
+    text-align: center;
+}
+
+.btn-primary {
+    color: #173e43;
+    background-color: #3fb0ac;
+    font-size: 25px;
+    margin: 0 auto;
+    width: 135px;
+    padding: 6px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #3fb0ac;
+    border-radius: 5px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.btn-primary:hover {
+    color: #fae596;
+    background-color: #3fb0ac;
+    font-size: 25px;
+    margin: 0 auto;
+    width: 135px;
+    padding: 6px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #3fb0ac;
+    border-radius: 5px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fae596;
+    background-color: #3fb0ac;
+    border-color: #3fb0ac;
+}
+
+.btn-primary:focus, .btn-primary.focus, .open > .dropdown-toggle.btn-primary {
+    color: #fae596;
+    background-color: #3fb0ac;
+    border-color: #3fb0ac;
+}
+
+.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
+    color: #fae596;
+    background-color: #3fb0ac;
+    border-color: #3fb0ac;
+}
