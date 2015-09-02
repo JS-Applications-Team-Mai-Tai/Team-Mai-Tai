@@ -1,6 +1,4 @@
-/**
- * Created by Hristo on 9/2/2015.
- */
+import Currency from 'currency.js';
 var Jem = (function (parent) {
 
     function Jem(price) {
@@ -14,3 +12,5 @@ var Jem = (function (parent) {
 
     return Jem;
 }(Currency));
+
+System.exports = Jem;
