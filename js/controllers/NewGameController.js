@@ -2,7 +2,7 @@ import Game from 'js/whereMagicHappens/game.js';
 
 function createNewGame() {
     var currentUser = Parse.User.current();
-    var currentUserGames = currentUser.get('imagesToGuess');
+    var currentUserGames = currentUser.get('games');
     var currentEnemies = [];
     currentUserGames.forEach(function (game) {
         currentEnemies.push(game.user);
@@ -30,19 +30,22 @@ function createNewGame() {
         }
 
         // Create a new game
-        var game = new Game(currentUser, possibleEnemy);
+        var game = new Game(currentUser.get('username'), possibleEnemy.get('username'));
 
         // Add game to player
         currentUserGames.push(game);
 
         // Add game to enemy
-        var enemyGames = possibleEnemy.get('games');
+        var enemyGames = possibleEnemy.get('games') || [];
         enemyGames.push(game);
 
         // Update games at database
         currentUser.save('games', currentUserGames);
         possibleEnemy.save('games', enemyGames);
+
+        // Start the game
+        game.start();
     });
 }
 
-System.exports = {createNewGame};
+export {createNewGame}

@@ -7,7 +7,8 @@ function showGames() {
     var currentUserImagesToGuess = Parse.User.current().get('games');
     var games = {};
     currentUserImagesToGuess.forEach(function (game) {
-        games[game.user] = game.images;
+        var user = game.player === Parse.User.current().get('username') ? game.enemy : game.player;
+        games[user] = game.images;
     });
 
     localStorage.setItem(currentUser.get('username'), JSON.stringify(games));

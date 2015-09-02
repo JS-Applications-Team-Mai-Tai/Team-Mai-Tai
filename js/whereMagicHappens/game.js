@@ -12,7 +12,7 @@ var Game = (function() {
         //random word to come here
         return _wordToDraw;
 
-    }
+    };
 
     Game.prototype.start = function(){
         var wordToDraw = this.getWord();
@@ -22,6 +22,7 @@ var Game = (function() {
         System.import('./js/controllers/DrawingController.js').then(function(){
            createArtSpace();
         });
+
         var template = $('#art-space-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var gameStage = compiledTemplate;
@@ -74,7 +75,7 @@ var Game = (function() {
 
 }());
 
-var testGame = new Game('classic', 'vankata');
-testGame.start();
+//var testGame = new Game('classic', 'vankata');
+//testGame.start();
 
 System.exports = Game;

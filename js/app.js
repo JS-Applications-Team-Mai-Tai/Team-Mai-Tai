@@ -1,4 +1,5 @@
 import Sammy from './lib/sammy.js';
+import {createNewGame} from 'js/controllers/NewGameController.js';
 
 (function () {
     System.import('./js/controllers/LogOutController.js').then(function () {
@@ -59,15 +60,15 @@ import Sammy from './lib/sammy.js';
                 });
 
                 $('#newGame-btn').on('click', function () {
-                    System.import('./js/controllers/NewGameController.js').then(function (obj) {
-                        console.log(obj);
+                    System.import('./js/controllers/NewGameController.js').then(function () {
+                       createNewGame();
                     });
                 });
             });
         });
 
-        this.get("#/my-games/:user", function (context) {
-            var user = this.params['user'];
+        this.get("#/my-games/:player/vs/:enemy", function (context) {
+            var user = this.params['player'] === Parse.User.current().get('username') ? this.params['enemy'] : this.params['player'];
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
                 System.import('./js/controllers/GameDetailsController.js').then(function () {
@@ -95,6 +96,6 @@ import Sammy from './lib/sammy.js';
     });
 
     $(function () {
-        app.run("#/art-space");
+        app.run("#/home");
     });
 }());
