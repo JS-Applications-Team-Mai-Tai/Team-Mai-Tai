@@ -78,6 +78,10 @@ body {
     color: #fae596;
 }
 
+#log-me-in:hover {
+    color: #fae596;
+}
+
 .navbar-inverse {
     background-color: #9fa8a3;
     border: 1px solid #9fa8a3;
