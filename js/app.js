@@ -58,12 +58,6 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
                 System.import('./js/controllers/Games.js').then(function () {
                     showGames();
                 });
-
-                $('#newGame-btn').on('click', function () {
-                    System.import('./js/controllers/NewGameController.js').then(function () {
-                       createNewGame();
-                    });
-                });
             });
         });
 
@@ -80,6 +74,9 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
         this.get('#/new-game', function(context){
             this.load('./templates/new-game.html', function(data){
                 context.$element().html(data);
+                System.import('./js/controllers/NewGameController.js').then(function () {
+                    createNewGame();
+                });
             });
         });
 

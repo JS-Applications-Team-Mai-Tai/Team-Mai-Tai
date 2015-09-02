@@ -5,19 +5,23 @@ function createNewGame() {
     var currentUserGames = currentUser.get('games');
     var currentEnemies = [];
     currentUserGames.forEach(function (game) {
-        currentEnemies.push(game.user);
+        var user = game.player === Parse.User.current().get('username') ? game.enemy : game.player;
+        currentEnemies.push(user);
     });
 
     var allUsersQuery = new Parse.Query(Parse.User);
-    var usersLength = 0;
-
     var allUsers = [];
 
     allUsersQuery.each(function (user) {
         allUsers.push(user);
     }).then(function () {
         while (true) {
-            var randomIndex = Math.floor(Math.random() * (usersLength + 1));
+            if(allUsers.length - 1 === currentUserGames.length) {
+                alert('You are now playing with all available users');
+                return;
+            }
+
+            var randomIndex = Math.floor(Math.random() * allUsers.length);
             var possibleEnemy = allUsers[randomIndex];
             var isSameUser = possibleEnemy.get('username') === currentUser.get('username'),
                 hasGameWithUser = currentEnemies.some(function (enemy) {
