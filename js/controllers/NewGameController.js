@@ -1,39 +1,61 @@
 //import Game from '.whereMagicHappens/game.js';
 
 function createNewGame() {
-    var user = Parse.User.current();
-    var currentUserGames = Parse.User.current().get('imagesToGuess');
+    var currentUser = Parse.User.current();
+    var currentUserGames = currentUser.get('imagesToGuess');
     var currentEnemies = [];
-    $.map(currentUserGames, function (value, ind) {
-        currentEnemies.push(currentUserGames[ind].user);
+    currentUserGames.forEach(function (game) {
+        currentEnemies.push(game.user);
     });
 
     var allUsersQuery = new Parse.Query(Parse.User);
-    //allUsersQuery.find({
-        //success: function(items){
-            //alert(items.length + 'users found');
-
-        //}});
-    //Parse don't get the users and enemy is undefined
-    var allUsers = [];
     var usersLength = 0;
-    allUsersQuery.each(function (user) {
-        allUsers.push(user);
-        usersLength += 1; //chak pyk konstanta
+
+    var promise = new Promise(function (resolve, reject) {
+        allUsersQuery.each(function (user) {
+            usersLength += 1;
+        })
+            .then(function () {
+                var isSameUser = true;
+                var hasGameWithSelectedUser = true;
+
+                for (var i = 0; i < usersLength; i += 1) {
+                    var promise = new Promise(function (resolve) {
+                        var randomIndex = Math.floor(Math.random() * (usersLength + 1));
+                        var counter = 0;
+                        allUsersQuery.each(function (user) {
+                            if (counter === randomIndex) {
+                                resolve(user.get('username'));
+                            }
+
+                            counter += 1;
+                        });
+                    });
+
+                    promise.then(function (username) {
+                        isSameUser = username === currentUser.get('username');
+                        hasGameWithSelectedUser = currentEnemies.some(function (enemy) {
+                            return username === enemy;
+                        });
+
+
+                        if (!(isSameUser || hasGameWithSelectedUser)) {
+                            resolve(username);
+                        }
+                    });
+
+                    if (!(isSameUser || hasGameWithSelectedUser)) {
+                        break;
+                    }
+                }
+            });
     });
-    alert(allUsers.length);
-    // user is a Parse.User object, allUsers.length returns 0
 
-    // get random index and while the corresponding user matches the current user, get a new random index
-    var randomIndex = Math.floor(Math.random() * (usersLength + 1));
-    var desiredEnemy = allUsers[randomIndex];
-    while (desiredEnemy === user || currentEnemies.indexOf(desiredEnemy) >= 0) {
-        randomIndex = Math.floor(Math.random() * (usersLength + 1));
-        desiredEnemy = allUsers[randomIndex];
-    }
+    promise.then(function (username) {
+        // make new game with this enemy
+        console.log(username);
+    });
 
-    var enemy = desiredEnemy;
-    alert(JSON.stringify(enemy));
 
     var mode = 'classic'; //we should get the value from the button
 
