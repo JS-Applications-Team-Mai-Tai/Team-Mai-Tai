@@ -58,12 +58,22 @@ import Sammy from './lib/sammy.js';
                     showGames();
                 });
 
-                $('#newGame-btn').on('click', function(){
+                $('#newGame-btn').on('click', function () {
                     System.import('./js/controllers/NewGameController.js').then(function () {
                         createNewGame();
                     });
                 });
             });
+        });
+
+        this.get("#/my-games/:user", function (context) {
+            var user = this.params['user'];
+            this.load('./templates/game-details.html', function (data) {
+                context.$element().html(data);
+                System.import('./js/controllers/GameDetailsController.js').then(function () {
+                    showGameDetails(user);
+                });
+            })
         });
 
         this.get('#/art-space', function (context) {

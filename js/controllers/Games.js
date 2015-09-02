@@ -1,9 +1,16 @@
 function showGames() {
-    if(!Parse.User.current()) {
+    var currentUser = Parse.User.current();
+    if (!currentUser) {
         $('div .myGamesWrapper').html('You must be logged in to see this page');
     }
 
     var currentUserImagesToGuess = Parse.User.current().get('imagesToGuess');
+    var games = {};
+    currentUserImagesToGuess.forEach(function (game) {
+        games[game.user] = game.images;
+    });
+
+    localStorage.setItem(currentUser.get('username'), JSON.stringify(games));
 
     if (currentUserImagesToGuess.length === constants.initialStateOfGuess.initial) {
         var noFriends = 'You have no games. Start new game!'; ///???

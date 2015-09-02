@@ -3,38 +3,10 @@
 
     <div class="jumbotron" id="my-turn">
         <h2>My Turn</h2>
-        <script id="myGamesTemplate" type="text/x-handlebars-template">
-            {{#each imagesToGuess}}
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{user}}</h3>
-                </div>
-                <div class="panel-body">
-                    {{#each images}}
-                    <div>
-                        <img width="100px" height="100px" src="{{base64String}}"
-                             alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
-                    </div>
-                    <div>
-                        {{#if letters}}{{letters}}{{else}}Sorry, no hints for this one.{{/if}}
-                    </div>
-                    <div>
-                        <label for="guess">And your guess is?</label>
-                        <input id="guess" type="text"/>
-                        <a href="#/my-games">Make guess</a>
-                    </div>
-                    {{/each}}
-                    <span>{{#if points}}{{points}}{{else}}0{{/if}} points or level ot smth</span>
-                    <a href="#" class="btn btn-primary btn-xs">--></a>
-                </div>
-            </div>
-            {{/each}}
-        </script>
     </div>
 
     <div class="jumbotron" id="their-turn">
         <h2>Their Turn</h2>
-
     </div>
 
 </div>
