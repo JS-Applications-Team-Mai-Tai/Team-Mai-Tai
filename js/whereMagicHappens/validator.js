@@ -22,7 +22,6 @@ var validator = (function(){
         }
     };
 
-
     return {
         validateUserNameAndPassword : validateUserNameAndPassword,
         validateIfUserExistsToLogOut: validateIfUserExistsToLogOut,
