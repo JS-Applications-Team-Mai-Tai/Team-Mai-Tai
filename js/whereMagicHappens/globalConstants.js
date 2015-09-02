@@ -35,6 +35,11 @@ var constants = (function () {
         initial: "#000"
     };
 
+    var prices = {
+        jemPrice: 10,
+        coinPrice: 1
+    }
+
     return {
         usernameValidations: usernameValidations,
         initialStateOfGuess: initialStateOfGuess,
@@ -42,7 +47,8 @@ var constants = (function () {
         helperValues: helperValues,
         gameValues: gameValues,
         xValues: xValues,
-        colors: colors
+        colors: colors,
+        prices: prices
     }
 
 }());
