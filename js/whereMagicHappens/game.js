@@ -10,7 +10,7 @@ var Game = (function(mode, enemy) {
 
     //Game.Prototype.start = function(){};
 
-    Object.defineProperty(Game.Prototype, 'mode', {
+    Object.defineProperty(Game.prototype, 'mode', {
         get : function(){
             return this._mode;
         },
@@ -20,7 +20,7 @@ var Game = (function(mode, enemy) {
         }
     });
 
-    Object.defineProperty(Game.Prototype, 'enemy', {
+    Object.defineProperty(Game.prototype, 'enemy', {
         get : function(){
             return this._enemy;
         },
@@ -30,7 +30,7 @@ var Game = (function(mode, enemy) {
         }
     });
 
-    Object.defineProperty(Game.Protoype, 'myturn',{
+    Object.defineProperty(Game.prototype, 'myturn',{
         get : function(){
             return this._myturn;
         },
