@@ -16,10 +16,16 @@ var validator = (function(){
         }
     };
 
+    var validatePriceOfJem = function(price){
+        if(price < constants.prices.jemPrice){
+            alert('Insufficient jems');
+        }
+    };
 
     return {
         validateUserNameAndPassword : validateUserNameAndPassword,
-        validateIfUserExistsToLogOut: validateIfUserExistsToLogOut
+        validateIfUserExistsToLogOut: validateIfUserExistsToLogOut,
+        validateJemInitPrice: validatePriceOfJem
     }
 
 }());
