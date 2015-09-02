@@ -45,6 +45,14 @@ function createNewGame() {
 
         // Start the game
         game.start();
+
+        // Update the local storage
+        var games = {};
+        currentUserGames.forEach(function (game) {
+            var user = game.player === Parse.User.current().get('username') ? game.enemy : game.player;
+            games[user] = game.images;
+        });
+        localStorage.setItem(currentUser.get('username'), JSON.stringify(games));
     });
 }
 
