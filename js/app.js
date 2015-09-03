@@ -82,7 +82,7 @@ import {createArtSpace} from 'js/controllers/DrawingController.js';
         });
 
         this.notFound = function () {
-            // do something
+            this.load('.templates/404-template.html');
         }
     });
 

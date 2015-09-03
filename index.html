@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/home"><img class="logo" src="imgs/logo.png"></a>
+            <a class="navbar-brand" href="#/home" style="padding: 0; margin-right: 15px"><img class="logo" src="imgs/paper-plane_64.png"></a>
             <a class="navbar-brand" href="#/home">HOME</a>
             <a class="navbar-brand" href="#/about">ABOUT</a>
             <a class="navbar-brand" href="#/my-games">MY GAMES</a>
@@ -48,7 +48,7 @@
 
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#/my-profile">My Profile</a></li>
-                        <li><a href="#/my-games">My Games?</a></li>
+                        <li><a href="#/my-games">My Games</a></li>
                         <li class="divider"></li>
                         <li id="log-out"><a href="#/home">Log out</a></li>
                         <li class="divider"></li>
@@ -124,7 +124,7 @@
     </div>
     <canvas background="#FFF" id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
     <div class="middle-desc" onclick="download()">
-        <a class="btn btn-success" href="#/my-games">Send your drawing!</a>
+        <a class="btn btn-success">Send your drawing!</a>
     </div>
     {{else}}
     {{#each images}}
@@ -148,17 +148,32 @@
 </script>
 
 <script id="my-games-template" type="text/x-handlebars-template">
-    <div><a class="btn btn-success" id="newGame-btn" href="#/new-game">New Game</a>
+    <div>
+        <a class="btn btn-success" id="newGame-btn" href="#/new-game">New Game</a>
     </div>
-    {{#each games}}
-    <div class="panel panel-primary">
+    <h1 class="turn-heading">My Turn</h1>
+    {{#each myTurnGames}}
+    <div class="panel">
         <div class="panel-heading">
-            <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
+            <span class="game-heading">game with {{enemy}}</span>
         </div>
         <div class="panel-body">
-            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} point(s) for this game</span>
-            <a id="{{@index}}" class="btn btn-default" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game
-                details</a>
+            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
+            <a id="{{@index}}" class="btn-default btn-sm" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game</a>
+        </div>
+
+    </div>
+    {{/each}}
+
+    <h2 class="turn-heading">Their Turn</h2>
+    {{#each theirTurnGames}}
+    <div class="panel">
+        <div class="panel-heading">
+            <span class="game-heading">game with {{enemy}}</span>
+        </div>
+        <div class="panel-body">
+            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
+            <a id="{{@index}}" class="btn-default btn-sm" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game</a>
         </div>
     </div>
     {{/each}}
