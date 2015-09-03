@@ -44,6 +44,7 @@ function showGames() {
         var template = $('#my-games-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var turnsTemplate = compiledTemplate({
+            games: currentUserGames,
             myTurnGames: myTurns,
             theirTurnGames: theirTurns
         });

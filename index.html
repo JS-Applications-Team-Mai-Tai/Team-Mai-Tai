@@ -68,7 +68,7 @@
 
 <footer class="modal-footer">
     <div class="fb-like"
-         data-href="http://localhost:63342/Team-Mai-Tai/index.html#/my-games"
+         data-href="https://cdn.rawgit.com/JS-Applications-Team-Mai-Tai/Team-Mai-Tai/master/index.html#/about"
          data-layout="standard"
          data-action="like"
          data-show-faces="true"
@@ -167,6 +167,8 @@
     <div>
         <a class="btn btn-success" id="newGame-btn" href="#/new-game">New Game</a>
     </div>
+    {{#if games}}
+    {{#if myTurnGames}}
     <h1 class="turn-heading">My Turn</h1>
     {{#each myTurnGames}}
     <div class="panel">
@@ -180,7 +182,9 @@
 
     </div>
     {{/each}}
+    {{/if}}
 
+    {{#if theirTurnGames}}
     <h2 class="turn-heading">Their Turn</h2>
     {{#each theirTurnGames}}
     <div class="panel">
@@ -193,6 +197,9 @@
         </div>
     </div>
     {{/each}}
+    {{/if}}
+
+    {{/if}}
 </script>
 
 <script id="art-space-template" type="text/x-handlebars">
