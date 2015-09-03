@@ -18,5 +18,3 @@ function signUp(usernameTextFieldId, passwordTextFieldId) {
     $('#sign-up').hide();
     $('#user-options').show();
 }
-
-export {signUp}

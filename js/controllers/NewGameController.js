@@ -36,7 +36,7 @@ function createNewGame() {
         // Create a new game
         var currentPlayerGame = new Game(currentUser.get('username'), possibleEnemy.get('username'));
         currentPlayerGame.id = localStorage.getItem('nextId');
-        var enemyGame = new Game(currentUser.get('username'), possibleEnemy.get('username'));
+        var enemyGame = new Game(possibleEnemy.get('username'), currentUser.get('username'));
         enemyGame.id = localStorage.getItem('nextId');
         enemyGame.myTurn = false;
 
