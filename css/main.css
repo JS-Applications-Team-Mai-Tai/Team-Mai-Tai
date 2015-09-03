@@ -310,5 +310,9 @@ canvas {
 }
 
 .logo {
-    width: 105px;
+    width: 50px;
+}
+
+.icons{
+    height: 30px;
 }
