@@ -38,7 +38,7 @@ var constants = (function () {
     var prices = {
         jemPrice: 10,
         coinPrice: 1
-    }
+    };
 
     return {
         usernameValidations: usernameValidations,
