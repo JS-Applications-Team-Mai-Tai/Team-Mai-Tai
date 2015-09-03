@@ -252,7 +252,18 @@ a:hover {
 }
 
 .img-about{
+    height: 185px;
     width: 200px;
+    border: 3px solid #fe606e;
+    background-image: url("../imgs/default-profile-pic.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    -webkit-box-shadow: 2px 2px 12px #ae9d96;
+    -moz-box-shadow: 2px 2px 12px #ae9d96;
+    box-shadow: 2px 2px 12px #ae9d96;
+    margin-right: 20px;
+    margin: 0 auto;
 }
 
 .team {
