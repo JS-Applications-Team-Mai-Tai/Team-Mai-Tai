@@ -2,6 +2,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta property="og:type"               content="game app" />
+    <meta property="og:title"              content="Mai Tai" />
     <title>Mai-Tai</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5-dist/JornalTheme/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -9,6 +11,15 @@
 </head>
 
 <body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -52,6 +63,16 @@
 <div id="main-content">
 
 </div>
+
+<footer class="modal-footer">
+    <div class="fb-like"
+         data-href="http://localhost:63342/Team-Mai-Tai/index.html#/my-games"
+         data-layout="standard"
+         data-action="like"
+         data-show-faces="true"
+         data-share="true">
+    </div>
+</footer>
 
 <script src="js/whereMagicHappens/globalConstants.js"></script>
 <script src="js/lib/jquery.js"></script>
@@ -145,6 +166,10 @@
 
 <script id="art-space-template" type="text/x-handlebars">
 
+
+</script>
+
+<script id="facebook-share-template" type="text/x-handlebars">
 </script>
 </body>
 </html>
