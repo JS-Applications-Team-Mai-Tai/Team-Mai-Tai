@@ -167,6 +167,7 @@
     <div>
         <a class="btn btn-success" id="newGame-btn" href="#/new-game">New Game</a>
     </div>
+    {{#if games}}
     <h1 class="turn-heading">My Turn</h1>
     {{#each myTurnGames}}
     <div class="panel">
@@ -193,6 +194,8 @@
         </div>
     </div>
     {{/each}}
+
+    {{/if}}
 </script>
 
 <script id="art-space-template" type="text/x-handlebars">
