@@ -1,24 +1,26 @@
 import Handlebars from 'js/lib/handlebars.js';
 
-var UserProfile = (function() {
-    function UserProfile(username){
+var UserProfile = (function () {
+    function UserProfile(username, coins, gems) {
         var _username,
             _profilePic,
             _coins,
-            _jems;
+            _gems;
         this._username = username;
-
+        this.coins = coins;
+        this.gems = gems;
     }
 
-    UserProfile.prototype.visualize = function(){
+    UserProfile.prototype.visualize = function () {
         var template = $('#user-profile-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var profile = compiledTemplate({
             username: this._username,
             coins: this.coins,
-            jems: this.jems
-            //coins and jems to come
+            gems: this.gems
+            //coins and gems to come
         });
+
         var page = $('#main-content');
 
         page.html('');
@@ -28,20 +30,20 @@ var UserProfile = (function() {
     };
 
     Object.defineProperty(UserProfile.prototype, 'user', {
-        get : function(){
+        get: function () {
             return this._user;
         },
-        set : function(value){
+        set: function (value) {
             this._user = value;
         }
     });
 
 
     Object.defineProperty(UserProfile.prototype, 'profilePic', {
-        get : function(){
+        get: function () {
             return this._profilePic;
         },
-        set : function(value){
+        set: function (value) {
             this._profilePic = value;
         }
     });

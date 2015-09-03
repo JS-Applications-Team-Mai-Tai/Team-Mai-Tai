@@ -9,7 +9,9 @@ function signUp(usernameTextFieldId, passwordTextFieldId) {
     validator.validateIfUserExistsToLogOut(currentUser);
 
     Parse.User.signUp(username, password, {
-        games: []
+        games: [],
+        coins: [],
+        gems: []
     });
 
     $('#userName').html(username);

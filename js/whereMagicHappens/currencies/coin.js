@@ -1,4 +1,4 @@
-import {Currency} from 'js/whereMagicHappens/currencies/currency.js';
+import {Currency} from './currency.js';
 
 var Coin = (function (parent) {
     function Coin() {
