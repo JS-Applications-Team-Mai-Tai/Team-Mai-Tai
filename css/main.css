@@ -24,6 +24,18 @@ body {
     text-align: center;
 }
 
+.middle-desc {
+    text-align: center;
+}
+
+a {
+    color: #c7a693;
+}
+
+a:hover {
+    color: #EB7151;
+}
+
 .signup-form {
     margin: 0 auto;
     width: 700px;
@@ -202,7 +214,7 @@ body {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     text-decoration: none;
     color: #173e43;
-    background-color: #b0aac2;
+    background-color: #c7a693;
 }
 
 .btn-primary:hover {
@@ -241,6 +253,10 @@ body {
 
 .img-about{
     width: 200px;
+}
+
+.team {
+    overflow: auto;
 }
 
 .modal-footer {
