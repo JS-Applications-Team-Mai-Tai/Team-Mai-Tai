@@ -1,16 +1,16 @@
-import Currency from 'currency.js';
-var Jem = (function (parent) {
+import {CURRENCY_TYPE} from 'js/whereMagicHappens/currencies/currency-type.js';
+import {Currency} from 'js/whereMagicHappens/currencies/currency.js';
 
-    function Jem(price) {
-        parent.call(this,price);
-        validator.validateJemInitPrice(price);
-        this.initialValue = CURRENCY_TYPE.JEM;
+var Jem = (function (parent) {
+    function Jem() {
+        parent.call(this);
+        this.value = 10;
+        this.type = CURRENCY_TYPE.JEM;
     }
 
     Jem.prototype = Object.create(parent.prototype);
-    Jem.prototype.canBuy = [canBuyTypes.pass];
 
     return Jem;
 }(Currency));
 
-System.exports = Jem;
+export {Jem}

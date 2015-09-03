@@ -1,15 +1,14 @@
-/**
- * Created by Hristo on 9/2/2015.
- */
-var Currency = (function (Parent) {
+import {CURRENCY_TYPE} from 'js/whereMagicHappens/currencies/currency-type.js';
 
+var Currency = (function (parent) {
     function Currency() {
-        this.initialValue = CURRENCY_TYPE.INITIAL;
+        this.value = 1;
+        this.type = CURRENCY_TYPE.COIN;
     }
 
-    Currency.prototype = Object.create(Parent.prototype);
+    Currency.prototype = Object.create(parent.prototype);
 
     return Currency;
-}(function () {}));
+}());
 
-System.exports = Currency;
+export {Currency}
