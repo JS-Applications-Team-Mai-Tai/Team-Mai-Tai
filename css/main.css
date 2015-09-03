@@ -299,3 +299,7 @@ canvas {
     position: fixed;
     bottom: 0;
 }
+
+.tool-outset {
+    margin-right: 20px;
+}
