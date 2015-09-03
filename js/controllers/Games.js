@@ -37,4 +37,8 @@ function showGames() {
         $('#main-content').html(turnsTemplate);
 
     }
+
+    $('#simple_sketch').sketch({
+        defaultColor: constants.colors.initial
+    });
 }

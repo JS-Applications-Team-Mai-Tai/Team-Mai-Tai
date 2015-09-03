@@ -103,9 +103,9 @@
 
         </div>
     </div>
-    <canvas id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
+    <canvas background="#FFF" id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
     <div onclick="download()">
-        <button>Print png base64 to console</button>
+        <a class="btn btn-success">Send your drawing!</a>
     </div>
     {{else}}
     {{#each images}}
@@ -119,7 +119,7 @@
     </div>
     <div>
         <label for="guess">And your guess is?</label>
-        <input id="guess" type="text"/>
+        <input data-id="{{is}}" id="guess" type="text"/>
         <a href="#/my-games">Make guess</a>
     </div>
     {{/each}}

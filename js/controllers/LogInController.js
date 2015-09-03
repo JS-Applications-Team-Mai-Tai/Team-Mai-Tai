@@ -6,7 +6,7 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
     var username = $(usernameTextFieldId).val(),
         password = $(passwordTextFieldId).val();
 
-    validator.validateUserNameAndPassword(username,password);
+    validator.validateUserNameAndPassword(username, password);
 
     var currentUser = Parse.User.current();
 
@@ -24,6 +24,13 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
 
         error: function () {
             alert('Invalid username or password');
+        }
+    }).then(function () {
+        var pendingGamesString = localStorage.getItem(Parse.User.current().get('username'));
+        if (pendingGamesString) {
+            var pendingGames = JSON.parse(pendingGamesString);
+            Parse.User.current().save('games', pendingGames);
+            localStorage.setItem(Parse.User.current().get('username'), null);
         }
     });
 }

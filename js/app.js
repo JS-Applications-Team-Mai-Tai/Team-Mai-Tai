@@ -22,6 +22,8 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
         }
     }());
 
+    localStorage.setItem('nextId', 0);
+
     var app = Sammy("#main-content", function () {
         this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
@@ -66,14 +68,23 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
             var gameId = this.params['id'];
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
-                System.import('./js/controllers/GameDetailsController.js').then(function () {
-                    showGameDetails(enemy, gameId);
-                });
+                System.import('./js/controllers/GameDetailsController.js')
+                    .then(function () {
+                        showGameDetails(enemy, gameId);
+                    })
+                    .then(function () {
+                        System.import('./js/controllers/DrawingController.js').then(function () {
+                            if (Parse.User.current().get('games')[gameId].myTurn) {
+                                createArtSpace();
+                            }
+                        });
+
+                    });
             })
         });
 
-        this.get('#/new-game', function(context){
-            this.load('./templates/new-game.html', function(data){
+        this.get('#/new-game', function (context) {
+            this.load('./templates/new-game.html', function (data) {
                 context.$element().html(data);
                 System.import('./js/controllers/NewGameController.js').then(function () {
                     createNewGame();

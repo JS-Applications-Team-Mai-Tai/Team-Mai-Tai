@@ -8,8 +8,8 @@ function showGameDetails(enemy, gameId) {
 
     var game = currentUser.get('games')[gameId];
 
-    if (game.myTurn && game.images === 0) {
-        mainContent.html($('<h3/>').html("It's their turn to guess! While you wait, why not play another game?"));
+    if (!game.myTurn && game.images.length === 0) {
+        mainContent.html($('<h3/>').html("It's their turn! While you wait, why not play another game?"));
     }
 
     var template = $('#game-details-template').html();
