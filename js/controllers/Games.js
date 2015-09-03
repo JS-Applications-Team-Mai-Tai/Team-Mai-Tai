@@ -5,6 +5,17 @@ function showGames() {
     }
 
     var currentUserGames = Parse.User.current().get('games');
+    if(currentUserGames.length === 0) {
+        var template = $('#my-games-template').html();
+        var compiledTemplate = Handlebars.compile(template);
+        var turnsTemplate = compiledTemplate({
+            games: []
+        });
+
+        $('#main-content').html(turnsTemplate).append($('<h5/>').html('You have no games yet.'));
+        return;
+    }
+
     var games = {}; // is this used anywhere?
     var myTurns = [];
     var theirTurns = [];
@@ -20,7 +31,7 @@ function showGames() {
     });
 
 
-    localStorage.setItem(currentUser.get('username'), JSON.stringify(games));
+    localStorage.setItem(currentUser.get('username'), JSON.stringify(currentUserGames));
     if (currentUserGames.length === constants.initialStateOfGuess.initial) {
         var noFriends = 'You have no games. Start new game!'; ///???
         $('#myGamesWrapper').html(noFriends);

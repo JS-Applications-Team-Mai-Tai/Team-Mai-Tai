@@ -71,6 +71,23 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
                 System.import('./js/controllers/GameDetailsController.js')
                     .then(function () {
                         showGameDetails(enemy, gameId);
+                        if (!Parse.User.current().get('games')[gameId].myTurn) {
+                            var word = $('#btn-guess').attr('data-id');
+                            $('#btn-guess').on('click', function () {
+                                var input = $('#guess').val();
+                                if (input === word) {
+                                    alert('Wow you guessed it');
+                                    var gameIndex = window.location.hash.split('/')[2];
+                                    var imageIndex = $('#btn-guess').parent().parent().attr('data-id');
+                                    var games = Parse.User.current().get('games');
+                                    games[gameIndex].myTurn = true;
+                                    games[gameIndex].images.splice(imageIndex, 1);
+                                    Parse.User.current().save('games', games);
+                                } else {
+                                    alert('Wrong guess');
+                                }
+                            })
+                        }
                     })
                     .then(function () {
                         System.import('./js/controllers/DrawingController.js').then(function () {
@@ -84,11 +101,13 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
         });
 
         this.get('#/new-game', function (context) {
+            var that = this;
             this.load('./templates/new-game.html', function (data) {
-                context.$element().html(data);
                 System.import('./js/controllers/NewGameController.js').then(function () {
                     createNewGame();
                 });
+            }).then(function () {
+                that.redirect('#/my-games');
             });
         });
 

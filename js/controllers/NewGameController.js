@@ -35,12 +35,12 @@ function createNewGame() {
 
         // Create a new game
         var currentPlayerGame = new Game(currentUser.get('username'), possibleEnemy.get('username'));
-        currentPlayerGame.id = localStorage.getItem('nextGameId');
+        currentPlayerGame.id = localStorage.getItem('nextId');
         var enemyGame = new Game(currentUser.get('username'), possibleEnemy.get('username'));
-        enemyGame.id = localStorage.getItem('nextGameId');
+        enemyGame.id = localStorage.getItem('nextId');
         enemyGame.myTurn = false;
 
-        localStorage.setItem('nextId', localStorage.getItem('nextGameId') + 1);
+        localStorage.setItem('nextId', +localStorage.getItem('nextId') + 1);
 
 
         // Add game to player
@@ -59,13 +59,7 @@ function createNewGame() {
         //game.start();
 
         // Update the local storage
-        var games = {};
-        currentUserGames.forEach(function (game) {
-            var user = game.player === Parse.User.current().get('username') ? game.enemy : game.player;
-            games[user] = game.images;
-        });
-
-        localStorage.setItem(currentUser.get('username'), JSON.stringify(games));
+        localStorage.setItem(currentUser.get('username'), JSON.stringify(currentUserGames));
     });
 }
 

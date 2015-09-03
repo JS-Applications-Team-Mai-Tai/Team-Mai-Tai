@@ -30,7 +30,7 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
         if (pendingGamesString) {
             var pendingGames = JSON.parse(pendingGamesString);
             Parse.User.current().save('games', pendingGames);
-            localStorage.setItem(Parse.User.current().get('username'), null);
+            localStorage.setItem(Parse.User.current().get('username'), '');
         }
     });
 }

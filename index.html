@@ -109,18 +109,20 @@
     </div>
     {{else}}
     {{#each images}}
-    <div><h3>Guess this one and it's their turn to challenge you!</h3></div>
-    <div>
-        <img width="100px" height="100px" src="{{base64String}}"
-             alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
-    </div>
-    <div>
-        {{#if letters}}{{letters}}{{else}}Sorry, no hints for this one.{{/if}}
-    </div>
-    <div>
-        <label for="guess">And your guess is?</label>
-        <input data-id="{{is}}" id="guess" type="text"/>
-        <a href="#/my-games">Make guess</a>
+    <div data-id="{{@index}}">
+        <div><h3>Guess this one and it's their turn to challenge you!</h3></div>
+        <div>
+            <img width="100px" height="100px" src="{{base64String}}"
+                 alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
+        </div>
+        <div>
+            {{#if letters}}{{letters}}{{else}}Sorry, no hints for this one.{{/if}}
+        </div>
+        <div>
+            <label for="guess">And your guess is?</label>
+            <input data-id="{{is}}" id="guess" type="text"/>
+            <a data-id="{{is}}" id="btn-guess" class="btn btn-success" href="#/my-games">Make guess</a>
+        </div>
     </div>
     {{/each}}
     {{/if}}
