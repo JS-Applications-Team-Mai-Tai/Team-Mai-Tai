@@ -1,5 +1,5 @@
 var UserProfile = (function() {
-    function UserProfile(user){
+    function UserProfile(username){
         var _username,
             _profilePic,
             _coins,
