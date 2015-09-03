@@ -47,18 +47,34 @@ var Word = (function () {
 
     Word.prototype.shuffle = function () {
         var currentWord = this.strValue.split(''),
-            length = currentWord.length;
+            length = currentWord.length,
+            resultLength = 14,
+            alphabet = 'abcdefghijklmnopqrstuvwxyz',
+            delta;
 
         for (var index = length - 1; index > 0; index -= 1) {
             var randomIndex = Math.floor(Math.random() * (index + 1)),
-             swapChar = currentWord[index];
+                swapChar = currentWord[index];
             currentWord[index] = currentWord[randomIndex];
             currentWord[randomIndex] = swapChar;
         }
 
+        var substractionLength = currentWord.length;
+
+        if (substractionLength < resultLength) {
+            delta = resultLength - substractionLength;
+            for (var i = 0; i < delta; i += 1) {
+                var indexer = Math.floor(Math.random() * alphabet.length);
+                currentWord.push(alphabet[indexer]);
+            }
+        }
+
         var resultWord = currentWord.join('');
-        return new Word(resultWord,this.difficulty,this.category);
+        return new Word(resultWord, this.difficulty, this.category);
     };
 
     return Word;
 }());
+
+
+

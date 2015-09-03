@@ -7,7 +7,7 @@ var Coin = (function (parent) {
     }
 
     Coin.prototype = Object.create(parent.prototype);
-    Coin.prototype.canBuy = this.canBuy = [canBuyTypes.bomb, canBuyTypes.hint];
+    Coin.prototype.canBuy = [canBuyTypes.bomb, canBuyTypes.hint];
 
     return Coin;
 }(Currency));
