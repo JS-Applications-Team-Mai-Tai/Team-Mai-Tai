@@ -168,6 +168,7 @@
         <a class="btn btn-success" id="newGame-btn" href="#/new-game">New Game</a>
     </div>
     {{#if games}}
+    {{#if myTurnGames}}
     <h1 class="turn-heading">My Turn</h1>
     {{#each myTurnGames}}
     <div class="panel">
@@ -181,7 +182,9 @@
 
     </div>
     {{/each}}
+    {{/if}}
 
+    {{#if theirTurnGames}}
     <h2 class="turn-heading">Their Turn</h2>
     {{#each theirTurnGames}}
     <div class="panel">
@@ -194,6 +197,7 @@
         </div>
     </div>
     {{/each}}
+    {{/if}}
 
     {{/if}}
 </script>
