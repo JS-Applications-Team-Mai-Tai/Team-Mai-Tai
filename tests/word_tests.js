@@ -48,5 +48,13 @@ describe('#Word',function(){
             var expected = 'wolf';
             expect(actual).to.not.be.equal(expected);
         });
+
+        it('expects to return a string value with 14 chars length',function(){
+           var obj = new Word('wolf','easy','animals');
+            var shuffledValue = obj.shuffle();
+            var actual = shuffledValue.strValue.length;
+            var expected = 14;
+            expect(actual).to.equal(expected);
+        });
     })
 });
