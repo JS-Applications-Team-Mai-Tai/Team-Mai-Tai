@@ -11,20 +11,16 @@ function showGames() {
     currentUserGames.forEach(function (game) {
         var user = game.player === Parse.User.current().get('username') ? game.enemy : game.player;
         games[user] = game.images;
-        if(game.myTurn){
+        if (game.myTurn) {
             myTurns.push(game)
         }
-        else{
+        else {
             theirTurns.push(game);
         }
     });
 
 
-
-
-
     localStorage.setItem(currentUser.get('username'), JSON.stringify(games));
-
     if (currentUserGames.length === constants.initialStateOfGuess.initial) {
         var noFriends = 'You have no games. Start new game!'; ///???
         $('#myGamesWrapper').html(noFriends);
@@ -35,8 +31,7 @@ function showGames() {
         var template = $('#my-games-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var turnsTemplate = compiledTemplate({
-            myTurnGames: myTurns,
-            theirTurnGames: theirTurns
+            games: currentUserGames
         });
 
         $('#main-content').html(turnsTemplate);
