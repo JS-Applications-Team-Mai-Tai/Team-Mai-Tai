@@ -5,6 +5,7 @@ var Game = (function() {
         this.enemy = enemy;
         this.images = [];
         this.myTurn = true;
+        this.points = 0;
     }
 
     Game.prototype.getWord = function(){

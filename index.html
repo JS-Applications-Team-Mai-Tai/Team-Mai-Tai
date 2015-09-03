@@ -124,7 +124,7 @@
     </div>
     <canvas background="#FFF" id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
     <div class="middle-desc" onclick="download()">
-        <a class="btn btn-success">Send your drawing!</a>
+        <a class="btn btn-success" href="#/my-games">Send your drawing!</a>
     </div>
     {{else}}
     {{#each images}}
@@ -156,7 +156,7 @@
             <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
         </div>
         <div class="panel-body">
-            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
+            <span>You have {{#if points}}{{points}}{{else}}0{{/if}} point(s) for this game</span>
             <a id="{{@index}}" class="btn btn-default" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game
                 details</a>
         </div>

@@ -9,6 +9,11 @@ function manageGuessing(gameId) {
                 var imageIndex = $('#btn-guess').parent().parent().attr('data-id');
                 var games = Parse.User.current().get('games');
                 games[gameIndex].myTurn = true;
+                if(!games[gameIndex].points) {
+                    games[gameIndex].points = 1;
+                } else {
+                    games[gameIndex].points += 1;
+                }
                 games[gameIndex].images.splice(imageIndex, 1);
                 Parse.User.current().save('games', games);
             } else {

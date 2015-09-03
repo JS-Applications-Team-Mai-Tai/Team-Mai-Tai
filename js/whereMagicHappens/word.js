@@ -1,27 +1,28 @@
-/**
- * Created by bianka on 9/1/15.
- */
 var Word = (function () {
-    function Word(strValue, difficulty, category) {
-        //var _strValue,
-        //    _difficulty,
-        //    _category;
-        this.strValue = strValue;
+    function Word(value, difficulty, category) {
+        this.value = value;
         this.difficulty = difficulty;
         this.category = category;
     }
 
-    Word.prototype.goGetGuessed = function () {
-        //send the word to the game stage to be drawn&guessed?
-    };
-
-    Object.defineProperty(Word.prototype, 'strValue', {
+    Object.defineProperty(Word.prototype, 'value', {
         get: function () {
-            return this._strValue;
+            return this._value;
         },
         set: function (value) {
-            //validation
-            this._strValue = value;
+            if(!(typeof value === 'string')) {
+                throw new Error('Value must be a string');
+            }
+
+            if(!value) {
+                throw new Error('Value is required');
+            }
+
+            if(value.length < 3) {
+                throw new Error('Value must be at least 3 characters');
+            }
+
+            this._value = value;
         }
     });
 
@@ -30,7 +31,10 @@ var Word = (function () {
             return this._difficulty;
         },
         set: function (value) {
-            //validation
+            if(!(value === 'easy' || value === 'medium' || value === 'hard')) {
+                throw new Error('Invalid difficulty');
+            }
+
             this._difficulty = value;
         }
     });
@@ -40,41 +44,26 @@ var Word = (function () {
             return this._category;
         },
         set: function (value) {
-            //validation
+            if(!(typeof value === 'string')) {
+                throw new Error('Value must be a string');
+            }
+
+            if(!value) {
+                throw new Error('Value is required');
+            }
+
+            if(value.length < 3) {
+                throw new Error('Value must be at least 3 characters');
+            }
+
             this._category = value;
         }
     });
 
-    Word.prototype.shuffle = function () {
-        var currentWord = this.strValue.split(''),
-            length = currentWord.length,
-            resultLength = 14,
-            alphabet = 'abcdefghijklmnopqrstuvwxyz',
-            delta;
-
-        for (var index = length - 1; index > 0; index -= 1) {
-            var randomIndex = Math.floor(Math.random() * (index + 1)),
-                swapChar = currentWord[index];
-            currentWord[index] = currentWord[randomIndex];
-            currentWord[randomIndex] = swapChar;
-        }
-
-        var substractionLength = currentWord.length;
-
-        if (substractionLength < resultLength) {
-            delta = resultLength - substractionLength;
-            for (var i = 0; i < delta; i += 1) {
-                var indexer = Math.floor(Math.random() * alphabet.length);
-                currentWord.push(alphabet[indexer]);
-            }
-        }
-
-        var resultWord = currentWord.join('');
-        return new Word(resultWord, this.difficulty, this.category);
-    };
-
     return Word;
 }());
+
+export {Word}
 
 
 
