@@ -169,6 +169,11 @@ a:hover {
     margin-left: 20px;
 }
 
+.btn-success {
+    background-color: #3fb0ac;
+    border: 1px solid #3fb0ac;
+}
+
 .panel-primary {
     border: 1px solid #b0aac2;
 }
@@ -292,13 +297,13 @@ canvas {
     text-align: center;
 }
 
-.modal-footer {
-    background-color: #c7a693;
-    width: 100%;
-    padding: 5px;
-    position: fixed;
-    bottom: 0;
-}
+/*.modal-footer {*/
+    /*background-color: #c7a693;*/
+    /*width: 100%;*/
+    /*padding: 5px;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+/*}*/
 
 .tool-outset {
     margin-right: 20px;
