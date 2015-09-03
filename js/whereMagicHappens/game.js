@@ -84,4 +84,4 @@ var Game = (function() {
 //var testGame = new Game('classic', 'vankata');
 //testGame.start();
 
-//System.exports = Game;
+System.exports = Game;
