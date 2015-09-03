@@ -49,7 +49,7 @@ function showGames() {
 
     }
 
-    $('#simple_sketch').sketch({
-        defaultColor: constants.colors.initial
-    });
+    //$('#simple_sketch').sketch({
+        //defaultColor: constants.colors.initial
+    //});
 }

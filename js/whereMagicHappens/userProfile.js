@@ -4,15 +4,26 @@
 
 var UserProfile = (function() {
     function UserProfile(user){
-        var _user,
-            _name,
+        var _username,
             _profilePic,
-            _points,
-            _gender;
-        this._user = user || Parse.User.current();
+            _coins,
+            _jems;
+        this._username = username;
+
     }
 
-    UserProfile.prototype.init = function(){
+    UserProfile.prototype.visualize = function(){
+        var template = $('#user-profile-template').html();
+        var compiledTemplate = Handlebars.compile(template);
+        var profile = compiledTemplate({
+            username: this.username,
+            coins: this.coins,
+            jems: this.jems
+        });
+        var page = $('#main-content');
+
+        page.html('');
+        page.append(profile);
 
 
     };
@@ -23,6 +34,16 @@ var UserProfile = (function() {
         },
         set : function(value){
             this._user = value;
+        }
+    });
+
+
+    Object.defineProperty(UserProfile.prototype, 'profilePic', {
+        get : function(){
+            return this._profilePic;
+        },
+        set : function(value){
+            this._profilePic = value;
         }
     });
 
