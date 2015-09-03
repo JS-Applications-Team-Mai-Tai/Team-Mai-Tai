@@ -2,6 +2,11 @@ body {
     background-color: #e8edf3;
     font-family: 'Walter Turncoat', cursive;
     overflow-x: hidden;
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 #signup-username, #signup-password {
@@ -266,16 +271,14 @@ a:hover {
     margin: 0 auto;
 }
 
-.team {
-    overflow: auto;
-}
+/*.team {*/
+    /*overflow: auto;*/
+/*}*/
 
 .modal-footer {
-    padding: 20px;
     background-color: #c7a693;
-    position: fixed;
-    text-align: right;
     width: 100%;
+    padding: 5px;
+    position: fixed;
     bottom: 0;
-    border-top: 1px solid #e5e5e5;
 }
