@@ -1,3 +1,5 @@
+import Handlebars from 'js/lib/handlebars.js';
+
 var UserProfile = (function() {
     function UserProfile(username){
         var _username,
