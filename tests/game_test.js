@@ -1,5 +1,5 @@
+//var expect = require('chai').expect;
 var expect = chai.expect;
-
 describe("Game", function() {
     describe("constructor", function () {
         it("should create a game 'classic' with mode = 'classic'", function () {
