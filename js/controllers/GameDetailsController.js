@@ -1,3 +1,5 @@
+import Handlebars from 'js/lib/handlebars.js';
+
 function showGameDetails(enemy, gameId) {
     var currentUser = Parse.User.current();
     var mainContent = $('#main-content');
@@ -14,13 +16,10 @@ function showGameDetails(enemy, gameId) {
 
     var template = $('#game-details-template').html();
     var compiledTemplate = Handlebars.compile(template);
-    var currentUserGames = JSON.parse(localStorage.getItem(currentUser.get('username')))[enemy];
-
-    if (!currentUserGames) {
-        mainContent.append($('<div/>').html('An error occurred while fetching your game with this player'));
-    }
 
     var gameDetails = compiledTemplate(game);
 
     mainContent.append($('<div/>').html(gameDetails));
 }
+
+export {showGameDetails}

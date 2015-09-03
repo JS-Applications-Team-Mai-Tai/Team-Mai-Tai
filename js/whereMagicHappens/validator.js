@@ -1,6 +1,3 @@
-/**
- * Created by Hristo on 9/1/2015.
- */
 var validator = (function(){
 
     var validateUserNameAndPassword = function(username,password){

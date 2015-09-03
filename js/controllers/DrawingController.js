@@ -1,9 +1,9 @@
-function createArtSpace() {
-    $('#simple_sketch').sketch({
-        defaultColor: constants.colors.initial
-    });
-
-    //return this;
+function createArtSpace(gameId) {
+    if (Parse.User.current().get('games')[gameId].myTurn) {
+        $('#simple_sketch').sketch({
+            defaultColor: constants.colors.initial
+        });
+    }
 }
 
 function download() {

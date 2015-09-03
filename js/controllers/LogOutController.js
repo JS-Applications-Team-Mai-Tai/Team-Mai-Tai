@@ -9,3 +9,5 @@ function logOut() {
         alert('No user to log out');
     }
 }
+
+export {logOut}

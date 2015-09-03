@@ -1,30 +1,17 @@
-import Sammy from './lib/sammy.js';
+import $ from 'js/lib/jquery.js';
+import Sammy from 'js/lib/sammy.js';
+import 'css/bootstrap-3.3.5-dist/js/bootstrap.js';
+import 'js/lib/sketch.js';
+import {initialize} from 'js/controllers/HomeController.js';
 import {createNewGame} from 'js/controllers/NewGameController.js';
 import {visualizeProfile} from 'js/controllers/UserProfileController.js';
+import {showGames} from 'js/controllers/GamesController.js';
+import {showGameDetails} from 'js/controllers/GameDetailsController.js';
+import {manageGuessing} from 'js/controllers/GuessingController.js';
+import {createArtSpace} from 'js/controllers/DrawingController.js';
 
 (function () {
-    System.import('./js/controllers/LogOutController.js').then(function () {
-        $('#log-out')
-            .on('click', function () {
-                logOut();
-            })
-    });
-
-    // check if there is a logged user
-    (function () {
-        if (Parse.User.current()) {
-            $('#userName').html(Parse.User.current().get('username'));
-            $('#log-in').hide();
-            $('#log-out').show();
-            $('#sign-up').hide();
-            $('#user-options').show();
-        } else {
-            $('#user-options').hide();
-        }
-    }());
-
-    localStorage.setItem('nextId', 0);
-
+    initialize();
     var app = Sammy("#main-content", function () {
         this.get('#/home', function (context) {
             this.load('./templates/home.html', function (data) {
@@ -68,47 +55,18 @@ import {visualizeProfile} from 'js/controllers/UserProfileController.js';
         this.get("#/my-games", function (context) {
             this.load('./templates/userGames.html', function (data) {
                 context.$element().html(data);
-
-                System.import('./js/controllers/Games.js').then(function () {
-                    showGames();
-                });
+                showGames();
             });
         });
 
         this.get("#/my-games/:id/:player/vs/:enemy", function (context) {
-            var enemy = this.params['player'] === Parse.User.current().get('username') ? this.params['enemy'] : this.params['player'];
-            var gameId = this.params['id'];
+            var enemy = this.params['player'] === Parse.User.current().get('username') ? this.params['enemy'] : this.params['player'],
+                gameId = this.params['id'];
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
-                System.import('./js/controllers/GameDetailsController.js')
-                    .then(function () {
-                        showGameDetails(enemy, gameId);
-                        if (!Parse.User.current().get('games')[gameId].myTurn) {
-                            var word = $('#btn-guess').attr('data-id');
-                            $('#btn-guess').on('click', function () {
-                                var input = $('#guess').val();
-                                if (input === word) {
-                                    alert('Wow you guessed it');
-                                    var gameIndex = window.location.hash.split('/')[2];
-                                    var imageIndex = $('#btn-guess').parent().parent().attr('data-id');
-                                    var games = Parse.User.current().get('games');
-                                    games[gameIndex].myTurn = true;
-                                    games[gameIndex].images.splice(imageIndex, 1);
-                                    Parse.User.current().save('games', games);
-                                } else {
-                                    alert('Wrong guess');
-                                }
-                            })
-                        }
-                    })
-                    .then(function () {
-                        System.import('./js/controllers/DrawingController.js').then(function () {
-                            if (Parse.User.current().get('games')[gameId].myTurn) {
-                                createArtSpace();
-                            }
-                        });
-
-                    });
+                showGameDetails(enemy, gameId);
+                createArtSpace(gameId);
+                manageGuessing(gameId);
             })
         });
 
@@ -126,17 +84,6 @@ import {visualizeProfile} from 'js/controllers/UserProfileController.js';
         this.notFound = function () {
             // do something
         }
-
-        //this.get('#/art-space', function (context) {
-        //    this.load('./templates/draw.html', function (data) {
-        //        System.import('./js/controllers/DrawingController.js').then(function () {
-        //            context.$element().html(data);
-        //            createArtSpace();
-        //        });
-        //    });
-        //});
-
-
     });
 
     $(function () {

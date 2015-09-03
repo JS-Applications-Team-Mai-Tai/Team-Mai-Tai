@@ -2,8 +2,8 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta property="og:type"               content="game app" />
-    <meta property="og:title"              content="Mai Tai" />
+    <meta property="og:type" content="game app"/>
+    <meta property="og:title" content="Mai Tai"/>
     <title>Mai-Tai</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.5-dist/JornalTheme/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -14,10 +14,11 @@
 <body>
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
+    js = d.createElement(s);
+    js.id = id;
     js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -74,16 +75,11 @@
     </div>
 </footer>
 
-<script src="js/whereMagicHappens/globalConstants.js"></script>
-<script src="js/lib/jquery.js"></script>
-<script src="css/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 <script src="js/lib/system.js"></script>
 <script src="js/lib/parse.js"></script>
-<script src="js/lib/handlebars.js"></script>
-<script src="js/lib/sketch.js"></script>
+<script src="js/whereMagicHappens/globalConstants.js"></script>
 <script src="js/whereMagicHappens/validator.js"></script>
 <script>
-    Parse.initialize("XyNdXQeBrdwFfoy1BXvnxf5sSBfd2QdpXJUtbSh9", "lVXyZDKnKUyLfcYxW3cQghtg6dJB5Hz9Pymf00XG");
     System.config({
         transpiler: "babel",
         babelOptions: {

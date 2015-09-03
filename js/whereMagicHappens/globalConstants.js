@@ -1,6 +1,3 @@
-/**
- * Created by Hristo on 9/1/2015.
- */
 var constants = (function () {
 
     var usernameValidations = {
