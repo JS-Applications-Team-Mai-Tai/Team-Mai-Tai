@@ -53,6 +53,21 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
             });
         });
 
+
+        /////////////////////////////////////////////////
+        this.get('#/my-profile', function(context) {
+            this.load('./templates/user-profile-template.html', function(data) {
+                context.$element().html(data);
+
+                System.import('./js/controllers/UserProfileController.js').then(function () {
+                    visualizeProfile();
+                });
+
+            });
+        });
+
+        /////////////////////////////////////////////////
+
         this.get("#/my-games", function (context) {
             this.load('./templates/userGames.html', function (data) {
                 context.$element().html(data);
@@ -110,6 +125,10 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
                 that.redirect('#/my-games');
             });
         });
+
+        this.notFound = function(){
+            // do something
+        }
 
         //this.get('#/art-space', function (context) {
         //    this.load('./templates/draw.html', function (data) {
