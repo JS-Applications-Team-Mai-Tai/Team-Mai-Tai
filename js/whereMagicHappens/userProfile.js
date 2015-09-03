@@ -1,5 +1,5 @@
 var UserProfile = (function() {
-    function UserProfile(user){
+    function UserProfile(username){
         var _username,
             _profilePic,
             _coins,
@@ -12,9 +12,10 @@ var UserProfile = (function() {
         var template = $('#user-profile-template').html();
         var compiledTemplate = Handlebars.compile(template);
         var profile = compiledTemplate({
-            username: this.username,
+            username: this._username,
             coins: this.coins,
             jems: this.jems
+            //coins and jems to come
         });
         var page = $('#main-content');
 

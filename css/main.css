@@ -2,6 +2,11 @@ body {
     background-color: #e8edf3;
     font-family: 'Walter Turncoat', cursive;
     overflow-x: hidden;
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 #signup-username, #signup-password {
@@ -164,6 +169,11 @@ a:hover {
     margin-left: 20px;
 }
 
+.btn-success {
+    background-color: #3fb0ac;
+    border: 1px solid #3fb0ac;
+}
+
 .panel-primary {
     border: 1px solid #b0aac2;
 }
@@ -252,19 +262,49 @@ a:hover {
 }
 
 .img-about{
+    height: 185px;
     width: 200px;
+    border: 3px solid #fe606e;
+    background-image: url("../imgs/default-profile-pic.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    -webkit-box-shadow: 2px 2px 12px #ae9d96;
+    -moz-box-shadow: 2px 2px 12px #ae9d96;
+    box-shadow: 2px 2px 12px #ae9d96;
+    margin-right: 20px;
+    margin: 0 auto;
 }
 
-.team {
-    overflow: auto;
+/*.team {*/
+/*overflow: auto;*/
+/*}*/
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.modal-footer {
-    padding: 20px;
-    background-color: #c7a693;
-    position: fixed;
-    text-align: right;
-    width: 100%;
-    bottom: 0;
-    border-top: 1px solid #e5e5e5;
+.popover-content {
+    padding: 9px 14px;
+    text-align: center;
+}
+
+/*.modal-footer {*/
+    /*background-color: #c7a693;*/
+    /*width: 100%;*/
+    /*padding: 5px;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+/*}*/
+
+.tool-outset {
+    margin-right: 20px;
 }
