@@ -316,3 +316,16 @@ canvas {
 .icons{
     height: 30px;
 }
+
+.turn-heading {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.game-heading {
+    font-size: 30px;
+    color: #3fb0ac ;
+}
+
+.btn-default {
+    align-self: flex-start;
+}
