@@ -1,7 +1,3 @@
-/**
- * Created by bianka on 9/3/15.
- */
-
 var UserProfile = (function() {
     function UserProfile(user){
         var _username,
@@ -52,4 +48,4 @@ var UserProfile = (function() {
 }());
 
 
-System.exports = UserProfile;
+export {UserProfile}

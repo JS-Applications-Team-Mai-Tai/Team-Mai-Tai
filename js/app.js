@@ -1,5 +1,6 @@
 import Sammy from './lib/sammy.js';
 import {createNewGame} from 'js/controllers/NewGameController.js';
+import {visualizeProfile} from 'js/controllers/UserProfileController.js';
 
 (function () {
     System.import('./js/controllers/LogOutController.js').then(function () {
@@ -55,14 +56,10 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
 
 
         /////////////////////////////////////////////////
-        this.get('#/my-profile', function(context) {
-            this.load('./templates/user-profile-template.html', function(data) {
+        this.get('#/my-profile', function (context) {
+            this.load('./templates/user-profile-template.html', function (data) {
                 context.$element().html(data);
-
-                System.import('./js/controllers/UserProfileController.js').then(function () {
-                    visualizeProfile();
-                });
-
+                visualizeProfile();
             });
         });
 
@@ -126,7 +123,7 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
             });
         });
 
-        this.notFound = function(){
+        this.notFound = function () {
             // do something
         }
 
