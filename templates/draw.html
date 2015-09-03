@@ -1,53 +1,49 @@
-
-//DONT FORGET TO DELETE
-
-<table class="table table-striped table-hover ">
-    <thead>
-    <tr>
-        <th>My Turn</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#each myTurnGames}}
-    <tr class="success">
-        <td>{{player}} vs. {{enemy}}</td>
-        <td><a id="{{@index}}" class="btn btn-default" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game
-            details</a></td>
-    </tr>
-    {{/each}}
-    {{#each theirTurnGames}}
-    <tr class="info">
-        <td>{{player}} vs. {{enemy}}</td>
-    </tr>
-    {{each}}
-    </tbody>
-</table>
-
-
-<h2 class="panel-heading">My Turn</h2>
-{{#each myTurnGames}}
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
-    </div>
-    <div class="panel-body">
-        <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
-        <a id="{{@index}}" class="btn btn-default" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game
-            details</a>
-    </div>
+<body>
+<div id="SketchTools">
+    <!-- Basic tools -->
+    <a href="#SketchPad" data-color="#000000" title="Black"><img src="img/black_icon.png" alt="Black"/></a>
+    <a href="#SketchPad" data-color="#ff0000" title="Red"><img src="img/red_icon.png" alt="Red"/></a>
+    <a href="#SketchPad" data-color="#00ff00" title="Green"><img src="img/green_icon.png" alt="Green"/></a>
+    <a href="#SketchPad" data-color="#0000ff" title="Blue"><img src="img/blue_icon.png" alt="Blue"/></a>
+    <a href="#SketchPad" data-color="#ffff00" title="Yellow"><img src="img/yellow_icon.png" alt="Yellow"/></a>
+    <a href="#SketchPad" data-color="#00ffff" title="Cyan"><img src="img/cyan_icon.png" alt="Cyan"/></a>
+    <br/>
+    <!-- Advanced colors -->
+    <a href="#SketchPad" data-color="#e74c3c" title="Alizarin"><img src="img/alizarin_icon.png" alt="Alizarin"/></a>
+    <a href="#SketchPad" data-color="#c0392b" title="Pomegrante"><img src="img/pomegrante_icon.png" alt="Pomegrante"/></a>
+    <a href="#SketchPad" data-color="#2ecc71" title="Emerald"><img src="img/emerald_icon.png" alt="Emerald"/></a>
+    <a href="#SketchPad" data-color="#1abc9c" title="Torquoise"><img src="img/torquoise_icon.png" alt="Torquoise"/></a>
+    <a href="#SketchPad" data-color="#3498db" title="Peter River"><img src="img/peterriver_icon.png" alt="Peter River"/></a>
+    <a href="#SketchPad" data-color="#9b59b6" title="Amethyst"><img src="img/amethyst_icon.png" alt="Amethyst"/></a>
+    <a href="#SketchPad" data-color="#f1c40f" title="Sun Flower"><img src="img/sunflower_icon.png" alt="Sun Flower"/></a>
+    <a href="#SketchPad" data-color="#f39c12" title="Orange"><img src="img/orange_icon.png" alt="Orange"/></a>
+    <br/>
+    <a href="#SketchPad" data-color="#ecf0f1" title="Clouds"><img src="img/clouds_icon.png" alt="Clouds"/></a>
+    <a href="#SketchPad" data-color="#bdc3c7" title="Silver"><img src="img/silver_icon.png" alt="Silver"/></a>
+    <a href="#SketchPad" data-color="#7f8c8d" title="Asbestos"><img src="img/asbestos_icon.png" alt="Asbestos"/></a>
+    <a href="#SketchPad" data-color="#34495e" title="Wet Asphalt"><img src="img/wetasphalt_icon.png" alt="Wet Asphalt"/></a>
+    <a href="#SketchPad" data-color="#ffffff" title="Eraser"><img src="img/eraser_icon.png" alt="Eraser"/></a>
+    <br/>
+    <!-- Size options -->
+    <a href="#SketchPad" data-size="1"><img src="img/pencil_icon.png" alt="Pencil"/></a>
+    <a href="#SketchPad" data-size="3"><img src="img/pen_icon.png" alt="Pen"/></a>
+    <a href="#SketchPad" data-size="5"><img src="img/stick_icon.png" alt="Stick"/></a>
+    <a href="#SketchPad" data-size="9"><img src="img/smallbrush_icon.png" alt="Small brush"/></a>
+    <a href="#SketchPad" data-size="15"><img src="img/mediumbrush_icon.png" alt="Medium brush"/></a>
+    <a href="#SketchPad" data-size="30"><img src="img/bigbrush_icon.png" alt="Big brush"/></a>
+    <a href="#SketchPad" data-size="60"><img src="img/bucket_icon.png" alt="Huge bucket"/></a>
+    <br/>
+    <a href="#SketchPad" data-download='png' id="DownloadPng">Download .PNG</a>
+    <br/>
 </div>
-{{/each}}
 
-<h2 class="">Their Turn</h2>
-{{#each theirTurnGames}}
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{player}} vs. {{enemy}}</h3>
-    </div>
-    <div class="panel-body">
-        <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
-        <a id="{{@index}}" class="btn btn-default" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game
-            details</a>
-    </div>
-</div>
-{{/each}}
+<canvas id="SketchPad" width="800" height="600"></canvas>
+
+<script type="text/javascript">
+    $(function() {
+        $('#SketchPad').sketch();
+    });
+</script>
+
+</body>
+</html>

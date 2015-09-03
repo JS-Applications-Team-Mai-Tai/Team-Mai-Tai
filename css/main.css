@@ -326,6 +326,6 @@ canvas {
     color: #3fb0ac ;
 }
 
-.btn-default {
-    align-self: flex-start;
+.canvas-tools {
+    height: 40px;
 }
