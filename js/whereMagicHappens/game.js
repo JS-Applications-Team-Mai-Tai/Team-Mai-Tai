@@ -4,7 +4,7 @@ var Game = (function() {
         this.player = player;
         this.enemy = enemy;
         this.images = [];
-        this._myturn = true;
+        this.myTurn = true;
     }
 
     Game.prototype.getWord = function(){
@@ -67,15 +67,15 @@ var Game = (function() {
     //    }
     //});
 
-    Object.defineProperty(Game.prototype, 'myturn',{
-        get : function(){
-            return this._myturn;
-        },
-        set : function(value){
-            //validate
-            this._myturn = value;
-        }
-    });
+    //Object.defineProperty(Game.prototype, 'myturn',{
+    //    get : function(){
+    //        return this._myturn;
+    //    },
+    //    set : function(value){
+    //        //validate
+    //        this._myturn = value;
+    //    }
+    //});
 
     return Game;
 

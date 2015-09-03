@@ -61,12 +61,13 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
             });
         });
 
-        this.get("#/my-games/:player/vs/:enemy", function (context) {
-            var user = this.params['player'] === Parse.User.current().get('username') ? this.params['enemy'] : this.params['player'];
+        this.get("#/my-games/:id/:player/vs/:enemy", function (context) {
+            var enemy = this.params['player'] === Parse.User.current().get('username') ? this.params['enemy'] : this.params['player'];
+            var gameId = this.params['id'];
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
                 System.import('./js/controllers/GameDetailsController.js').then(function () {
-                    showGameDetails(user);
+                    showGameDetails(enemy, gameId);
                 });
             })
         });
@@ -80,14 +81,14 @@ import {createNewGame} from 'js/controllers/NewGameController.js';
             });
         });
 
-        this.get('#/art-space', function (context) {
-            this.load('./templates/draw.html', function (data) {
-                System.import('./js/controllers/DrawingController.js').then(function () {
-                    context.$element().html(data);
-                    createArtSpace();
-                });
-            });
-        });
+        //this.get('#/art-space', function (context) {
+        //    this.load('./templates/draw.html', function (data) {
+        //        System.import('./js/controllers/DrawingController.js').then(function () {
+        //            context.$element().html(data);
+        //            createArtSpace();
+        //        });
+        //    });
+        //});
 
 
     });
