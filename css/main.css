@@ -1,6 +1,7 @@
 body {
     background-color: #e8edf3;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Walter Turncoat', cursive;
+    overflow-x: hidden;
 }
 
 #signup-username, #signup-password {
@@ -140,6 +141,26 @@ body {
     font-family: 'Shadows Into Light', cursive;
 }
 
+.text-center {
+    font-size: x-large;
+    margin: 0 auto;
+    width: 49%;
+    line-height: 2.5;
+}
+
+.btn-default {
+    margin-left: 20px;
+}
+
+.panel-primary {
+    border: 1px solid #b0aac2;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #b0aac2;
+    border: 1px solid #b0aac2;
+}
+
 #newGame-btn>a {
     color: #173e43;
     text-decoration: none;
@@ -172,6 +193,16 @@ body {
     border: 1px solid #3fb0ac;
     border-radius: 5px;
     font-family: 'Shadows Into Light', cursive;
+}
+
+.dropdown-menu {
+    font-family: 'Walter Turncoat', cursive;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    text-decoration: none;
+    color: #173e43;
+    background-color: #b0aac2;
 }
 
 .btn-primary:hover {
@@ -210,4 +241,14 @@ body {
 
 .img-about{
     width: 200px;
+}
+
+.modal-footer {
+    padding: 20px;
+    background-color: #c7a693;
+    position: fixed;
+    text-align: right;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #e5e5e5;
 }
