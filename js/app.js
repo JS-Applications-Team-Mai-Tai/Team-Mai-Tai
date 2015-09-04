@@ -77,11 +77,11 @@ import {manageGuessing} from './controllers/GuessingController.js';
 
         this.notFound = function () {
             $.get('./templates/404-template.html', function (data) {
-                $('#main-content').html(data).css({
+                $('#main-content').html($('<div/>').html(data).css({
                     'color': 'red',
                     'font-size': '40px',
                     'text-align': 'center'
-                });
+                }));
             })
         }
     });
