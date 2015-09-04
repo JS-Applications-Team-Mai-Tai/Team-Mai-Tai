@@ -1,3 +1,4 @@
+import {Currency} from 'js/whereMagicHappens/currencies/currency.js';
 function manageGuessing(gameId) {
     if (!Parse.User.current().get('games')[gameId].myTurn) {
         var word = $('#btn-guess').attr('data-id');
@@ -16,6 +17,13 @@ function manageGuessing(gameId) {
                 }
                 games[gameIndex].images.splice(imageIndex, 1);
                 Parse.User.current().save('games', games);
+
+                var coins = Parse.User.current().get('coins');
+                for(var i = 0; i < 5; i += 1) {
+                    coins.push(new Currency());
+                }
+
+                Parse.User.current().save('coins', coins);
             } else {
                 alert('Wrong guess');
             }

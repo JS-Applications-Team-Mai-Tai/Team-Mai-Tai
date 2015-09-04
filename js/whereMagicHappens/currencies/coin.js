@@ -1,13 +1,13 @@
-import {Currency} from './currency.js';
+import {Currency} from 'js/whereMagicHappens/currencies/currency.js';
 
-var Coin = (function (parent) {
+var Coin = (function () {
     function Coin() {
-        parent.call(this);
+        Currency.call(this);
     }
 
-    Coin.prototype = Object.create(parent.prototype);
+    Coin.prototype = Object.create(Currency.prototype);
 
     return Coin;
-}(Currency));
+}());
 
 export {Coin}
