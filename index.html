@@ -201,8 +201,15 @@
             <img width="560px" height="210px" src="{{base64String}}"
                  alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
         </div>
-        <div>
-            {{#if letters}}{{letters}}{{else}}Sorry, no hints for this one.{{/if}}
+        <div class="badge">
+            {{#if letters}}
+            {{letters}} <img
+                src="imgs/bomb_64.png"
+                alt="bombs"
+                align="middle"
+                class="icons">
+
+            {{else}}Sorry, no hints for this one.{{/if}}
         </div>
         <div>
             <label for="guess">And your guess is?</label>

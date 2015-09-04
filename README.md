@@ -26,6 +26,10 @@ Simply click on New Game and draw your first picture.
 
 ![alt game screenshot](http://prikachi.com/images/597/8337597q.jpg "Pesho")
 
-Then guess what your opponent had sent you. If you can't wait - just start a new game!
+Then guess what your opponent had sent you. And if it's too hard just use a joker!
+
+![alt game screenshot](http://prikachi.com/images/610/8337610W.jpg "Guessing")
+
+If you can't wait - just start a new game!
 
 
