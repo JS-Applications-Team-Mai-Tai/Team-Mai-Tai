@@ -106,21 +106,71 @@
 
     </div>
     <div class="popover-content">
-        <h4 class="turn-heading">Your Turn</h4>
-        <div id="game-level">Level: 23</div>
-        <span id="drawing-info">You are drawing {{#if wordToDraw}}{{wordToDraw}}{{else}}???{{/if}}</span>
-
-        <div class="tools">                       <!-- data color for pencil should be placeholder -->
-            <a class="tool-outset" href="#simple_sketch" data-size="3" data-tool="marker" alt="pen" alt="Pencil">
-                <img class="canvas-tools" src="imgs/pen.png" align="middle">
-            </a>
-            <a class="tool-outset" href="#simple_sketch" data-tool="marker" alt="eraser" data-color="#fff" alt="Eraser">
-                <img class="canvas-tools" src="imgs/eraser.png" align="middle">
-            </a>
-            <a class="tool-outset" href="#simple_sketch" data-tool="eraser" alt="Trash">
-                <img class="canvas-tools" src="imgs/trash.png" align="middle">
-            </a>
+        <div>
+            <h4 class="turn-heading">Your Turn</h4>
+            <div id="game-level">Level: 23</div>
+            <span id="drawing-info">You are drawing {{#if wordToDraw}}{{wordToDraw}}{{else}}???{{/if}}</span>
         </div>
+
+        <div class="navbar-header">
+            <ul id="nav">
+                <li id="pen">
+                    <a class="tool-outset" data-toggle="collapse" href="#simple_sketch" data-size="5" data-tool="marker" alt="pen" alt="Pencil">
+                        <img class="canvas-tools" src="imgs/pen.png" align="middle">
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#simple_sketch" data-size="10">
+                                <img src="imgs/circle.png" style="height: 10px">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#simple_sketch" data-size="20">
+                                <img src="imgs/circle.png" style="height: 18px">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#simple_sketch" data-size="60">
+                                <img src="imgs/circle.png" style="height: 25px">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="eraser">
+                    <a class="tool-outset" href="#simple_sketch" data-tool="marker" alt="eraser" data-color="#fff" alt="Eraser">
+                        <img class="canvas-tools" src="imgs/eraser.png" align="middle">
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#simple_sketch" data-size="10">
+                                <img src="imgs/circle.png" style="height: 10px">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#simple_sketch" data-size="20">
+                                <img src="imgs/circle.png" style="height: 18px">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#simple_sketch" data-size="60">
+                                <img src="imgs/circle.png" style="height: 25px">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="trash">
+                    <a class="tool-outset" href="#simple_sketch" data-tool="eraser" alt="Trash">
+                        <img class="canvas-tools" src="imgs/trash.png" align="middle">
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
         <br/>
         <div class="colors">
             <a href="#simple_sketch" data-color="#000000" title="Black"><img src="imgs/colors/black_icon.png.png" alt="Black"/></a>
@@ -151,8 +201,15 @@
             <img width="560px" height="210px" src="{{base64String}}"
                  alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
         </div>
-        <div>
-            {{#if letters}}{{letters}}{{else}}Sorry, no hints for this one.{{/if}}
+        <div class="badge">
+            {{#if letters}}
+            {{letters}} <img
+                src="imgs/bomb_64.png"
+                alt="bombs"
+                align="middle"
+                class="icons">
+
+            {{else}}Sorry, no hints for this one.{{/if}}
         </div>
         <div>
             <label for="guess">And your guess is?</label>

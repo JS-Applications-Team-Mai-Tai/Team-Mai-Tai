@@ -22,7 +22,8 @@ function download() {
         if (currentGame.id === gameId) {
             enemyGames[i].images.push({
                 base64String: pngUrl,
-                is: 'pesho'
+                is: 'pesho',
+                letters: '10'
             })
         }
     }

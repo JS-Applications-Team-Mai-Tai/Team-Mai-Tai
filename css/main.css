@@ -329,3 +329,64 @@ canvas {
 .canvas-tools {
     height: 40px;
 }
+
+
+
+/*------------------------------------*\
+    NAV
+    or how Bianca fucked Elena's CSS :D
+\*------------------------------------*/
+#nav{
+    list-style:none;
+    font-weight:bold;
+    margin-bottom:10px;
+    float:left; /* Clear floats */
+    width:100%;
+    /* Bring the nav above everything else--uncomment if needed.
+    position:relative;
+    z-index:5;
+    */
+}
+#nav li{
+    float:left;
+    margin-right:10px;
+    position:relative;
+}
+#nav a{
+    display:block;
+    padding:5px;
+    text-decoration:none;
+}
+#nav a:hover{
+    border-bottom: dashed;
+}
+
+/*--- DROPDOWN ---*/
+#nav ul{
+    list-style:none;
+    position:absolute;
+    left:-9999px;
+}
+#nav ul li{
+    padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+    float:none;
+}
+#nav ul a{
+    white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+}
+#nav li:hover ul{ /* Display the dropdown on hover */
+    left:0; /* Bring back on-screen when needed */
+}
+#nav li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+    text-decoration:underline;
+}
+#nav li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+    text-decoration:none;
+}
+#nav li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+    background:#d6e9c6;
+}
+
+.colors {
+    padding-right: 100px;
+}
