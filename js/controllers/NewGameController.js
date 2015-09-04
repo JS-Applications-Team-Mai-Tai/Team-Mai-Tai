@@ -1,6 +1,7 @@
 import {Game} from 'js/whereMagicHappens/game.js';
 
 function createNewGame() {
+    var success = true;
     var currentUser = Parse.User.current();
     var currentUserGames = currentUser.get('games');
     var currentEnemies = [];
@@ -16,8 +17,9 @@ function createNewGame() {
         allUsers.push(user);
     }).then(function () {
         while (true) {
-            if(allUsers.length - 1 === currentUserGames.length) {
-                alert('You are now playing with all available users');
+            if (allUsers.length - 1 === currentUserGames.length) {
+                alert('Your game was not created. You are currently playing with all available users');
+                succcess = false;
                 return;
             }
 
@@ -57,6 +59,10 @@ function createNewGame() {
 
         // Update the local storage
         localStorage.setItem(currentUser.get('username'), JSON.stringify(currentUserGames));
+    }).then(function () {
+        if (success) {
+            alert('Your game was successfully created!');
+        }
     });
 }
 

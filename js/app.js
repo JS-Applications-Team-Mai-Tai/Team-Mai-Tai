@@ -70,19 +70,19 @@ import {manageGuessing} from './controllers/GuessingController.js';
             })
         });
 
-        this.get('#/new-game', function (context) {
-            var that = this;
-            this.load('./templates/new-game.html', function (data) {
-                System.import('./js/controllers/NewGameController.js').then(function () {
-                    createNewGame();
-                });
-            }).then(function () {
-                that.redirect('#/my-games');
-            });
+        this.get('#/new-game', function () {
+            createNewGame();
+            this.redirect('#/home');
         });
 
         this.notFound = function () {
-            this.load('.templates/404-template.html');
+            $.get('./templates/404-template.html', function (data) {
+                $('#main-content').html(data).css({
+                    'color': 'red',
+                    'font-size': '40px',
+                    'text-align': 'center'
+                });
+            })
         }
     });
 
