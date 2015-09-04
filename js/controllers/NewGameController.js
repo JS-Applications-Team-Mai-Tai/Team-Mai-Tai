@@ -1,4 +1,4 @@
-import Game from 'js/whereMagicHappens/game.js';
+import {Game} from 'js/whereMagicHappens/game.js';
 
 function createNewGame() {
     var currentUser = Parse.User.current();
@@ -54,9 +54,6 @@ function createNewGame() {
 
         // Update games at database
         currentUser.save('games', currentUserGames);
-
-        // Start the game
-        //game.start();
 
         // Update the local storage
         localStorage.setItem(currentUser.get('username'), JSON.stringify(currentUserGames));

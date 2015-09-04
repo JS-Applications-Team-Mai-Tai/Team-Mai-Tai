@@ -2,10 +2,6 @@ import Handlebars from 'js/lib/handlebars.js';
 
 var UserProfile = (function () {
     function UserProfile(username, coins, gems) {
-        var _username,
-            _profilePic,
-            _coins,
-            _gems;
         this._username = username;
         this.coins = coins;
         this.gems = gems;
@@ -18,13 +14,11 @@ var UserProfile = (function () {
             username: this._username,
             coins: this.coins,
             gems: this.gems
-            //coins and gems to come
         });
 
         var page = $('#main-content');
 
-        page.html('');
-        page.append(profile);
+        page.html(profile);
 
 
     };

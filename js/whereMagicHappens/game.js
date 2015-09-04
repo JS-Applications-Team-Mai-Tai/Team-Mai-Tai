@@ -1,5 +1,5 @@
-var Game = (function() {
-    function Game(player, enemy, mode){
+var Game = (function () {
+    function Game(player, enemy, mode) {
         this._mode = mode || 'classic';
         this.player = player;
         this.enemy = enemy;
@@ -8,20 +8,20 @@ var Game = (function() {
         this.points = 0;
     }
 
-    Game.prototype.getWord = function(){
+    Game.prototype.getWord = function () {
         var _wordToDraw;
         //random word to come here
         return _wordToDraw;
 
     };
 
-    Game.prototype.start = function(){
+    Game.prototype.start = function () {
         var wordToDraw = this.getWord();
         //wordToDraw.shuffle();
         wordToDraw = 'jobs'; //TODO
 
-        System.import('./js/controllers/DrawingController.js').then(function(){
-           createArtSpace();
+        System.import('./js/controllers/DrawingController.js').then(function () {
+            createArtSpace();
         });
 
         var template = $('#art-space-template').html();
@@ -39,50 +39,56 @@ var Game = (function() {
     };
 
     Object.defineProperty(Game.prototype, 'mode', {
-        get : function(){
+        get: function () {
             return this._mode;
         },
-        set : function(value){
+        set: function (value) {
             //validate - modes are 'Classic' & 'Challenge'(not necessary will be implemented)
             this._mode = value;
         }
     });
 
-    //Object.defineProperty(Game.prototype, 'enemy', {
-    //    get : function(){
-    //        return this._enemy;
-    //    },
-    //    set : function(value){
-    //        //validate - it will be validated before that so I'm not sure
-    //        this._enemy = value;
-    //    }
-    //});
-    //
-    //Object.defineProperty(Game.prototype, 'player', {
-    //    get : function(){
-    //        return this._player;
-    //    },
-    //    set : function(value){
-    //        //validate - it will be validated before that so I'm not sure
-    //        this._player = value;
-    //    }
-    //});
+    Object.defineProperty(Game.prototype, 'enemy', {
+        get: function () {
+            return this._enemy;
+        },
+        set: function (value) {
+            if (!value || value === '') {
+                throw new Error('Invalid enemy name');
+            }
 
-    //Object.defineProperty(Game.prototype, 'myturn',{
-    //    get : function(){
-    //        return this._myturn;
-    //    },
-    //    set : function(value){
-    //        //validate
-    //        this._myturn = value;
-    //    }
-    //});
+            this._enemy = value;
+        }
+    });
+
+    Object.defineProperty(Game.prototype, 'player', {
+        get: function () {
+            return this._player;
+        },
+        set: function (value) {
+            if (!value || value === '') {
+                throw new Error('Invalid player name');
+            }
+
+            this._player = value;
+        }
+    });
+
+    Object.defineProperty(Game.prototype, 'myTurn', {
+        get: function () {
+            return this._myTurn;
+        },
+        set: function (value) {
+            if (typeof value !== 'boolean') {
+                throw new Error('MyTurn is a boolean property');
+            }
+
+            this._myTurn = value;
+        }
+    });
 
     return Game;
 
 }());
 
-//var testGame = new Game('classic', 'vankata');
-//testGame.start();
-
-System.exports = Game;
+export {Game}
