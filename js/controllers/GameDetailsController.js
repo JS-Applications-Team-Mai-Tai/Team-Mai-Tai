@@ -8,7 +8,11 @@ function showGameDetails(enemy, gameId) {
         return;
     }
 
-    var game = currentUser.get('games')[gameId];
+    var games = currentUser.get('games');
+    var game = games[gameId];
+    games[gameId].level = Math.floor(game.points / 2);
+    Parse.User.current().save('games', games);
+
 
     if (!game.myTurn && game.images.length === 0) {
         mainContent.html($('<h3/>').html("It's their turn! While you wait, why not play another game?"));

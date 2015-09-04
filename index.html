@@ -108,8 +108,8 @@
     <div class="popover-content">
         <div>
             <h4 class="turn-heading">Your Turn</h4>
-            <div id="game-level">Level: 23</div>
-            <span id="drawing-info">You are drawing {{#if wordToDraw}}{{wordToDraw}}{{else}}???{{/if}}</span>
+            <div id="game-level">Level: {{#if level}}{{level}}{{else}}1{{/if}}</div>
+            <span id="drawing-info">You are drawing {{#if wordToDraw}}{{wordToDraw}}{{else}}PESHO, as always{{/if}}</span>
         </div>
 
         <div class="navbar-header">
@@ -191,7 +191,7 @@
     </div>
     <canvas background="#FFF" id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
     <div class="middle-desc" onclick="download()">
-        <a class="btn btn-success">Send your drawing!</a>
+        <a class="btn btn-success" href="#/my-games">Send your drawing!</a>
     </div>
     {{else}}
     {{#each images}}
