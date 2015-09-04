@@ -10,7 +10,7 @@ import {visualizeProfile} from './controllers/UserProfileController.js';
 import {showGames} from './controllers/GamesController.js';
 import {showGameDetails} from './controllers/GameDetailsController.js';
 import {manageGuessing} from './controllers/GuessingController.js';
-//import {createArtSpace, download as sendImageToUser} from './controllers/DrawingController.js';
+import {createArtSpace, download} from './controllers/DrawingController.js';
 
 (function () {
     initialize();
@@ -65,6 +65,10 @@ import {manageGuessing} from './controllers/GuessingController.js';
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
                 showGameDetails(enemy, gameId);
+                $('#send-drawing').on('click', function () {
+                    download();
+                });
+                
                 createArtSpace(gameId);
                 manageGuessing(gameId);
             })

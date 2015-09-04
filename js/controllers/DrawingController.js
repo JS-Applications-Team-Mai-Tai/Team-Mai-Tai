@@ -32,4 +32,4 @@ function download() {
     alert('Drawing successfully sent');
 }
 
-//export {createArtSpace, download}
+export {createArtSpace, download}
