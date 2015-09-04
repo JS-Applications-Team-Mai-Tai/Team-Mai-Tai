@@ -365,7 +365,7 @@ canvas {
 #nav ul{
     list-style:none;
     position:absolute;
-    left:-9999px; 
+    left:-9999px;
 }
 #nav ul li{
     padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
