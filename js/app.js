@@ -41,16 +41,12 @@ import {createArtSpace} from 'js/controllers/DrawingController.js';
             });
         });
 
-
-        /////////////////////////////////////////////////
         this.get('#/my-profile', function (context) {
             this.load('./templates/user-profile-template.html', function (data) {
                 context.$element().html(data);
                 visualizeProfile();
             });
         });
-
-        /////////////////////////////////////////////////
 
         this.get("#/my-games", function (context) {
             this.load('./templates/userGames.html', function (data) {

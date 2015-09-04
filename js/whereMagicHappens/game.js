@@ -48,44 +48,44 @@ var Game = (function () {
         }
     });
 
-    Object.defineProperty(Game.prototype, 'enemy', {
-        get: function () {
-            return this._enemy;
-        },
-        set: function (value) {
-            if (!value || value === '') {
-                throw new Error('Invalid enemy name');
-            }
-
-            this._enemy = value;
-        }
-    });
-
-    Object.defineProperty(Game.prototype, 'player', {
-        get: function () {
-            return this._player;
-        },
-        set: function (value) {
-            if (!value || value === '') {
-                throw new Error('Invalid player name');
-            }
-
-            this._player = value;
-        }
-    });
-
-    Object.defineProperty(Game.prototype, 'myTurn', {
-        get: function () {
-            return this._myTurn;
-        },
-        set: function (value) {
-            if (typeof value !== 'boolean') {
-                throw new Error('MyTurn is a boolean property');
-            }
-
-            this._myTurn = value;
-        }
-    });
+    //Object.defineProperty(Game.prototype, 'enemy', {
+    //    get: function () {
+    //        return this._enemy;
+    //    },
+    //    set: function (value) {
+    //        if (!value || value === '') {
+    //            throw new Error('Invalid enemy name');
+    //        }
+    //
+    //        this._enemy = value;
+    //    }
+    //});
+    //
+    //Object.defineProperty(Game.prototype, 'player', {
+    //    get: function () {
+    //        return this._player;
+    //    },
+    //    set: function (value) {
+    //        if (!value || value === '') {
+    //            throw new Error('Invalid player name');
+    //        }
+    //
+    //        this._player = value;
+    //    }
+    //});
+    //
+    //Object.defineProperty(Game.prototype, 'myTurn', {
+    //    get: function () {
+    //        return this._myTurn;
+    //    },
+    //    set: function (value) {
+    //        if (typeof value !== 'boolean') {
+    //            throw new Error('MyTurn is a boolean property');
+    //        }
+    //
+    //        this._myTurn = value;
+    //    }
+    //});
 
     return Game;
 
