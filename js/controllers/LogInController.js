@@ -34,3 +34,5 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
         }
     });
 }
+
+export {logIn}

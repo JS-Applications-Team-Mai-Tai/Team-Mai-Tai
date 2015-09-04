@@ -31,3 +31,5 @@ function download() {
     localStorage.setItem(enemy, JSON.stringify(enemyGames));
     alert('Drawing successfully sent');
 }
+
+//export {createArtSpace, download}

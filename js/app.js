@@ -1,14 +1,16 @@
-import $ from 'js/lib/jquery.js';
-import Sammy from 'js/lib/sammy.js';
+import $ from './lib/jquery.js';
+import Sammy from './lib/sammy.js';
 import 'css/bootstrap-3.3.5-dist/js/bootstrap.js';
-import 'js/lib/sketch.js';
-import {initialize} from 'js/controllers/HomeController.js';
-import {createNewGame} from 'js/controllers/NewGameController.js';
-import {visualizeProfile} from 'js/controllers/UserProfileController.js';
-import {showGames} from 'js/controllers/GamesController.js';
-import {showGameDetails} from 'js/controllers/GameDetailsController.js';
-import {manageGuessing} from 'js/controllers/GuessingController.js';
-import {createArtSpace} from 'js/controllers/DrawingController.js';
+import './lib/sketch.js';
+import {initialize} from './controllers/HomeController.js';
+import {logIn} from './controllers/LogInController.js';
+import {signUp} from './controllers/SignUpController.js';
+import {createNewGame} from './controllers/NewGameController.js';
+import {visualizeProfile} from './controllers/UserProfileController.js';
+import {showGames} from './controllers/GamesController.js';
+import {showGameDetails} from './controllers/GameDetailsController.js';
+import {manageGuessing} from './controllers/GuessingController.js';
+//import {createArtSpace, download as sendImageToUser} from './controllers/DrawingController.js';
 
 (function () {
     initialize();
@@ -21,17 +23,19 @@ import {createArtSpace} from 'js/controllers/DrawingController.js';
 
         this.get("#/log-in", function (context) {
             this.load('./templates/log-in.html', function (data) {
-                System.import('./js/controllers/LogInController.js').then(function () {
-                    context.$element().html(data);
-                });
+                context.$element().html(data);
+                $('#log-me-in').on('click', function () {
+                    logIn('#login-username', '#login-password');
+                })
             });
         });
 
         this.get("#/sign-up", function (context) {
             this.load('./templates/sign-up.html', function (data) {
-                System.import('./js/controllers/SignUpController.js').then(function () {
-                    context.$element().html(data);
-                });
+                context.$element().html(data);
+                $('#sign-me-up').on('click', function () {
+                    signUp('#signup-username', '#signup-password');
+                })
             });
         });
 
