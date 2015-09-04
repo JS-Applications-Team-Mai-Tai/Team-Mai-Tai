@@ -68,7 +68,7 @@ import {createArtSpace, download} from './controllers/DrawingController.js';
                 $('#send-drawing').on('click', function () {
                     download();
                 });
-                
+
                 createArtSpace(gameId);
                 manageGuessing(gameId);
             })

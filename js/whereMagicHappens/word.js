@@ -18,8 +18,8 @@ var Word = (function () {
                 throw new Error('Value is required');
             }
 
-            if(value.length < 3) {
-                throw new Error('Value must be at least 3 characters');
+            if(value.length < 2) {
+                throw new Error('Value must be at least 2 characters');
             }
 
             this._value = value;
