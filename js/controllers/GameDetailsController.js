@@ -1,6 +1,6 @@
 import Handlebars from 'js/lib/handlebars.js';
 
-function showGameDetails(enemy, gameId) {
+function showGameDetails(gameId) {
     var currentUser = Parse.User.current();
     var mainContent = $('#main-content');
     if (!currentUser) {
@@ -8,13 +8,20 @@ function showGameDetails(enemy, gameId) {
         return;
     }
 
+    var game;
     var games = currentUser.get('games');
-    var game = games[gameId];
-    games[gameId].level = Math.floor(game.points / 2);
-    Parse.User.current().save('games', games);
+    for(var i = 0, len = games.length; i < len; i += 1) {
+        var currentGame = games[i];
+        if(currentGame.id === gameId) {
+            game = currentGame;
+            games[i].level = Math.floor(game.points / 2);
+            break;
+        }
+    }
 
+    currentUser.save('games', games);
 
-    if (!game.myTurn && game.images.length === 0) {
+    if(!game.myTurn && game.images.length === 0) {
         mainContent.html($('<h3/>').html("It's their turn! While you wait, why not play another game?"));
     }
 

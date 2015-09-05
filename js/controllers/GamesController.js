@@ -4,9 +4,10 @@ function showGames() {
     var currentUser = Parse.User.current();
     if (!currentUser) {
         $('div .myGamesWrapper').html('You must be logged in to see this page');
+        return;
     }
 
-    var currentUserGames = Parse.User.current().get('games');
+    var currentUserGames = currentUser.get('games');
     if(currentUserGames.length === 0) {
         var template = $('#my-games-template').html();
         var compiledTemplate = Handlebars.compile(template);

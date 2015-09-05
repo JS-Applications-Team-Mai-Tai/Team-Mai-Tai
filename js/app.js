@@ -11,6 +11,7 @@ import {showGames} from './controllers/GamesController.js';
 import {showGameDetails} from './controllers/GameDetailsController.js';
 import {manageGuessing} from './controllers/GuessingController.js';
 import {createArtSpace, download} from './controllers/DrawingController.js';
+import {WordGenerator} from './whereMagicHappens/word-generator.js';
 
 (function () {
     initialize();
@@ -64,7 +65,7 @@ import {createArtSpace, download} from './controllers/DrawingController.js';
                 gameId = this.params['id'];
             this.load('./templates/game-details.html', function (data) {
                 context.$element().html(data);
-                showGameDetails(enemy, gameId);
+                showGameDetails(gameId);
                 $('#send-drawing').on('click', function () {
                     download();
                 });

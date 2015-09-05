@@ -58,34 +58,12 @@ function setUpWordList() {
         "zip"
     ];
 
-    var WordList = Parse.Object.extend('WordList');
-    new Parse.Query(WordList)
-        .find()
-        .then(function (wordLists) {
-            if (wordLists.length > 0) {
-                if (wordLists[0].get('data').length < wordsAsStrings.length) {
-                    var wordList = wordLists[0];
+    var data = [];
+    for (var i = 0, len = wordsAsStrings.length; i < len; i += 1) {
+        data.push(new Word(wordsAsStrings[i], 'medium', 'general'));
+    }
 
-                    var data = [];
-                    for (var i = 0, len = wordsAsStrings.length; i < len; i += 1) {
-                        data.push(new Word(wordsAsStrings[i], 'medium', 'general'));
-                    }
-
-                    wordList.set('data', data);
-                    wordList.save();
-                }
-            } else {
-                wordList = new WordList();
-
-                data = [];
-                for (i = 0, len = wordsAsStrings.length; i < len; i += 1) {
-                    data.push(new Word(wordsAsStrings[i], 'medium', 'general'));
-                }
-
-                wordList.set('data', data);
-                wordList.save();
-            }
-        });
+    localStorage.setItem('words', JSON.stringify(data));
 }
 
 function initialize() {

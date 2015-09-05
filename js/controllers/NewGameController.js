@@ -1,4 +1,14 @@
-import {Game} from 'js/whereMagicHappens/game.js';
+import {Game} from '../whereMagicHappens/game.js';
+
+var generateId = function () {
+    var separator = '_';
+
+    function S4() {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+
+    return (S4() + S4() + separator + S4() + separator + S4() + separator + S4() + separator + S4() + S4() + S4());
+};
 
 function createNewGame() {
     var success = true;
@@ -37,13 +47,11 @@ function createNewGame() {
 
         // Create a new game
         var currentPlayerGame = new Game(currentUser.get('username'), possibleEnemy.get('username'));
-        currentPlayerGame.id = localStorage.getItem('nextId');
+        currentPlayerGame.id = generateId();
         var enemyGame = new Game(possibleEnemy.get('username'), currentUser.get('username'));
-        enemyGame.id = localStorage.getItem('nextId');
+        enemyGame.word = currentPlayerGame.word;
+        enemyGame.id = currentPlayerGame.id;
         enemyGame.myTurn = false;
-
-        localStorage.setItem('nextId', +localStorage.getItem('nextId') + 1);
-
 
         // Add game to player
         currentUserGames.push(currentPlayerGame);

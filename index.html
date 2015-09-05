@@ -34,7 +34,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/home" style="padding: 0; margin-right: 15px"><img class="logo" src="imgs/paper-plane_64.png"></a>
+            <a class="navbar-brand" href="#/home" style="padding: 0; margin-right: 15px"><img class="logo"
+                                                                                              src="imgs/paper-plane_64.png"></a>
             <a class="navbar-brand" href="#/home">HOME</a>
             <a class="navbar-brand" href="#/about">ABOUT</a>
             <a class="navbar-brand" href="#/my-games">MY GAMES</a>
@@ -108,14 +109,16 @@
     <div class="popover-content">
         <div>
             <h4 class="turn-heading">Your Turn</h4>
+
             <div id="game-level">Level: {{#if level}}{{level}}{{else}}1{{/if}}</div>
-            <span id="drawing-info">You are drawing {{#if wordToDraw}}{{wordToDraw}}{{else}}JOHN, as always{{/if}}</span>
+            <span id="drawing-info">Your word is:  <strong>{{word._value}}</strong></span>
         </div>
 
         <div class="navbar-header">
             <ul id="nav">
                 <li id="pen">
-                    <a class="tool-outset" data-toggle="collapse" href="#simple_sketch" data-size="5" data-tool="marker" alt="pen" alt="Pencil">
+                    <a class="tool-outset" data-toggle="collapse" href="#simple_sketch" data-size="5" data-tool="marker"
+                       alt="pen" alt="Pencil">
                         <img class="canvas-tools" src="imgs/pen.png" align="middle">
                     </a>
                     <ul>
@@ -138,7 +141,8 @@
                 </li>
 
                 <li id="eraser">
-                    <a class="tool-outset" href="#simple_sketch" data-tool="marker" alt="eraser" data-color="#fff" alt="Eraser">
+                    <a class="tool-outset" href="#simple_sketch" data-tool="marker" alt="eraser" data-color="#fff"
+                       alt="Eraser">
                         <img class="canvas-tools" src="imgs/eraser.png" align="middle">
                     </a>
                     <ul>
@@ -172,21 +176,34 @@
         </div>
 
         <br/>
+
         <div class="colors">
-            <a href="#simple_sketch" data-color="#000000" title="Black"><img src="imgs/colors/black_icon.png.png" alt="Black"/></a>
-            <a href="#simple_sketch" data-color="#ff0000" title="Red"><img src="imgs/colors/red_icon.png" alt="Red"/></a>
-            <a href="#simple_sketch" data-color="#00ff00" title="Green"><img src="imgs/colors/green_icon.png" alt="Green"/></a>
+            <a href="#simple_sketch" data-color="#000000" title="Black"><img src="imgs/colors/black_icon.png.png"
+                                                                             alt="Black"/></a>
+            <a href="#simple_sketch" data-color="#ff0000" title="Red"><img src="imgs/colors/red_icon.png"
+                                                                           alt="Red"/></a>
+            <a href="#simple_sketch" data-color="#00ff00" title="Green"><img src="imgs/colors/green_icon.png"
+                                                                             alt="Green"/></a>
             <a href="#simple_sketch" data-color="#0000ff" title="Blue"><img src="imgs/colors/blue_icon.png" alt="Blue"/></a>
-            <a href="#simple_sketch" data-color="#ffff00" title="Yellow"><img src="imgs/colors/yellow_icon.png" alt="Yellow"/></a>
+            <a href="#simple_sketch" data-color="#ffff00" title="Yellow"><img src="imgs/colors/yellow_icon.png"
+                                                                              alt="Yellow"/></a>
             <a href="#simple_sketch" data-color="#00ffff" title="Cyan"><img src="imgs/colors/cyan_icon.png" alt="Cyan"/></a>
-            <a href="#simple_sketch" data-color="#e74c3c" title="Alizarin"><img src="imgs/colors/alizarin_icon.png" alt="Alizarin"/></a>
-            <a href="#simple_sketch" data-color="#c0392b" title="Pomegrante"><img src="imgs/colors/pomegramde_icon.png" alt="Pomegrante"/></a>
-            <a href="#simple_sketch" data-color="#2ecc71" title="Emerald"><img src="imgs/colors/emeral_icon.png" alt="Emerald"/></a>
-            <a href="#simple_sketch" data-color="#1abc9c" title="Torquoise"><img src="imgs/colors/torquoise_icon.png" alt="Torquoise"/></a>
-            <a href="#simple_sketch" data-color="#3498db" title="Peter River"><img src="imgs/colors/peterriver_icon.png" alt="Peter River"/></a>
-            <a href="#simple_sketch" data-color="#9b59b6" title="Amethyst"><img src="imgs/colors/amethyst_icon.png" alt="Amethyst"/></a>
-            <a href="#simple_sketch" data-color="#f1c40f" title="Sun Flower"><img src="imgs/colors/sunflower_icon.png" alt="Sun Flower"/></a>
-            <a href="#simple_sketch" data-color="#f39c12" title="Orange"><img src="imgs/colors/orange_icon.png" alt="Orange"/></a>
+            <a href="#simple_sketch" data-color="#e74c3c" title="Alizarin"><img src="imgs/colors/alizarin_icon.png"
+                                                                                alt="Alizarin"/></a>
+            <a href="#simple_sketch" data-color="#c0392b" title="Pomegrante"><img src="imgs/colors/pomegramde_icon.png"
+                                                                                  alt="Pomegrante"/></a>
+            <a href="#simple_sketch" data-color="#2ecc71" title="Emerald"><img src="imgs/colors/emeral_icon.png"
+                                                                               alt="Emerald"/></a>
+            <a href="#simple_sketch" data-color="#1abc9c" title="Torquoise"><img src="imgs/colors/torquoise_icon.png"
+                                                                                 alt="Torquoise"/></a>
+            <a href="#simple_sketch" data-color="#3498db" title="Peter River"><img src="imgs/colors/peterriver_icon.png"
+                                                                                   alt="Peter River"/></a>
+            <a href="#simple_sketch" data-color="#9b59b6" title="Amethyst"><img src="imgs/colors/amethyst_icon.png"
+                                                                                alt="Amethyst"/></a>
+            <a href="#simple_sketch" data-color="#f1c40f" title="Sun Flower"><img src="imgs/colors/sunflower_icon.png"
+                                                                                  alt="Sun Flower"/></a>
+            <a href="#simple_sketch" data-color="#f39c12" title="Orange"><img src="imgs/colors/orange_icon.png"
+                                                                              alt="Orange"/></a>
         </div>
     </div>
     <canvas background="#FFF" id="simple_sketch" width="800" height="300" style="border: solid black"></canvas>
@@ -202,15 +219,9 @@
                  alt="Sorry but you have to guess this. Good luck, haha (evil laugh)"/>
         </div>
         <div class="badge">
-            {{#if letters}}
-            {{letters}} <img
-                src="imgs/bomb_64.png"
-                alt="bombs"
-                align="middle"
-                class="icons">
-
-            {{else}}Sorry, no hints for this one.{{/if}}
+            {{letters}} <img src="imgs/bomb_64.png" alt="bombs" align="middle" class="icons">
         </div>
+        <div style="font-size:15px">Psst! Your word is {{is}}, but don't tell anyone I told you, OK.</div>
         <div>
             <label for="guess">And your guess is?</label>
             <input data-id="{{is}}" id="guess" type="text"/>
@@ -235,7 +246,8 @@
         </div>
         <div class="panel-body">
             <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
-            <a id="{{@index}}" class="btn-default btn-sm" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game</a>
+            <a class="btn-default btn-sm" href="#/my-games/{{id}}/{{player}}/vs/{{enemy}}">Go to
+                game</a>
         </div>
 
     </div>
@@ -251,12 +263,12 @@
         </div>
         <div class="panel-body">
             <span>You have {{#if points}}{{points}}{{else}}0{{/if}} points for this game</span>
-            <a id="{{@index}}" class="btn-default btn-sm" href="#/my-games/{{@index}}/{{player}}/vs/{{enemy}}">Go to game</a>
+            <a class="btn-default btn-sm" href="#/my-games/{{id}}/{{player}}/vs/{{enemy}}">Go to
+                game</a>
         </div>
     </div>
     {{/each}}
     {{/if}}
-
     {{/if}}
 </script>
 
