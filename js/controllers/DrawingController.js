@@ -1,3 +1,5 @@
+import toastr from 'js/lib/toastr/toastr.min.js';
+
 function createArtSpace(gameId) {
     var currentUser = Parse.User.current();
     var currentUserGames = currentUser.get('games');
@@ -51,7 +53,8 @@ function download() {
     }
 
     localStorage.setItem(enemy, JSON.stringify(enemyGames));
-    alert('Drawing successfully sent');
+    toastr.success('Drawing successfully sent');
+    //alert('Drawing successfully sent');
 }
 
 export {createArtSpace, download}

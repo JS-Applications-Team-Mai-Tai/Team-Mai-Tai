@@ -2,6 +2,7 @@ import $ from './lib/jquery.js';
 import Sammy from './lib/sammy.js';
 import 'css/bootstrap-3.3.5-dist/js/bootstrap.js';
 import './lib/sketch.js';
+
 import {initialize} from './controllers/HomeController.js';
 import {logIn} from './controllers/LogInController.js';
 import {signUp} from './controllers/SignUpController.js';

@@ -67,6 +67,7 @@ function manageGuessing(gameId) {
                 currentUser.save('gems', gems);
             } else {
                 alert('Wrong guess');
+                //toastr.warning('Wrong guess...:(')
             }
         });
     }
