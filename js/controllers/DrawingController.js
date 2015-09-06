@@ -54,12 +54,12 @@ function download() {
 
     localStorage.setItem(enemy, JSON.stringify(enemyGames));
 
-    //alert('Drawing successfully sent');
     swal({
-        name: "Good job!",
-        text: "Your masterpiece was sent!",
-        confirmButtonText: "Nice!"
-    });
+        title: "Nice job!",
+        text: "Your masterpiece was successfully send!",
+        imageUrl: "https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/picture_64.png",
+        timer: 2000,
+        showConfirmButton: false });
 }
 
 export {createArtSpace, download}
