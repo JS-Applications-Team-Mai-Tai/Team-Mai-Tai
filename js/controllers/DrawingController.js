@@ -53,12 +53,13 @@ function download() {
     }
 
     localStorage.setItem(enemy, JSON.stringify(enemyGames));
+
+    //alert('Drawing successfully sent');
     swal({
-        name: "Goog job!",
-        text: "Your masterpiece was sent to " + enemy + "!",
+        name: "Good job!",
+        text: "Your masterpiece was sent!",
         confirmButtonText: "Nice!"
     });
-    //alert('Drawing successfully sent');
 }
 
 export {createArtSpace, download}
