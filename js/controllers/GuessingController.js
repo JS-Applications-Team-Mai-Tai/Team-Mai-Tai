@@ -24,7 +24,7 @@ function manageGuessing(gameId) {
             if (input === word) {
                 //alert('Wow you guessed it');
                 swal({
-                    title: 'Sweet!'
+                    title: 'Sweet!',
                     text: 'You guessed correctly, my friend!',
                     imageUrl: 'https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/picture_64.png',
                     timer: 2000,   showConfirmButton: false
