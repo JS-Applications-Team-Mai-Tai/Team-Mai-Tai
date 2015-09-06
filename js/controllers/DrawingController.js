@@ -53,7 +53,11 @@ function download() {
     }
 
     localStorage.setItem(enemy, JSON.stringify(enemyGames));
-    toastr.success('Drawing successfully sent');
+    swal({
+        name: "Goog job!",
+        text: "Your masterpiece was sent to " + enemy + "!",
+        confirmButtonText: "Nice!"
+    });
     //alert('Drawing successfully sent');
 }
 

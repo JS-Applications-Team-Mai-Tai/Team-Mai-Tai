@@ -28,7 +28,15 @@ function createNewGame() {
     }).then(function () {
         while (true) {
             if (allUsers.length - 1 === currentUserGames.length) {
-                alert('Your game was not created. You are currently playing with all available users');
+                //alert('Your game was not created. You are currently playing with all available users');
+                swal({
+                    title: 'Game is not created!',
+                    text: 'You are currently playing with all available users',
+                    type: 'error',
+                    imageUrl: 'https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/lightning_64.png'
+
+                });
+
                 succcess = false;
                 return;
             }
@@ -69,7 +77,13 @@ function createNewGame() {
         localStorage.setItem(currentUser.get('username'), JSON.stringify(currentUserGames));
     }).then(function () {
         if (success) {
-            alert('Your game was successfully created!');
+            //alert('Your game was successfully created!');
+            swal({
+                title: 'Success!',
+                text: 'Your game was successfully created!',
+                imageUrl: 'https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/trumpet_64.png'
+
+            });
         }
     });
 }

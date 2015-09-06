@@ -20,10 +20,24 @@ function logIn(usernameTextFieldId, passwordTextFieldId) {
             $('#name').show();
             $('#userName').html(username);
             $('#user-options').show();
+
+            swal({
+                title: "Welcome",
+                text: "Hello back, " + username + "!",
+                type: "success",
+                confirmationButtonText: "Sweet!"
+            });
+
         },
 
         error: function () {
-            alert('Invalid username or password');
+            //alert('Invalid username or password');
+            swal({
+                title: "Error!",
+                text: "Invalid username or password",
+                type: "error",
+                confirmButtonText: "Ok.."
+            });
         }
     }).then(function () {
         var pendingGamesString = localStorage.getItem(Parse.User.current().get('username'));

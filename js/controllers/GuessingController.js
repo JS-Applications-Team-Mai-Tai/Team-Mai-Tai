@@ -22,7 +22,14 @@ function manageGuessing(gameId) {
         $('#btn-guess').on('click', function () {
             var input = $('#guess').val();
             if (input === word) {
-                alert('Wow you guessed it');
+                //alert('Wow you guessed it');
+                swal({
+                    title: 'Sweet!'
+                    text: 'You guessed correctly, my friend!',
+                    imageUrl: 'https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/picture_64.png',
+                    timer: 2000,   showConfirmButton: false
+                });
+
                 var imageIndex = $('#btn-guess').parent().parent().attr('data-id');
                 currentUserGames[gameIndex].myTurn = true;
                 if (!currentGame.points) {
@@ -66,8 +73,14 @@ function manageGuessing(gameId) {
 
                 currentUser.save('gems', gems);
             } else {
-                alert('Wrong guess');
-                //toastr.warning('Wrong guess...:(')
+                //alert('Wrong guess');
+                swal({
+                    title: "Ooops!",
+                    text: "I'm sorry, you didn't guess that correctly :(",
+                    type: "error",
+                    timer: "1500",
+                    showConfirmButton: false
+                });
             }
         });
     }
